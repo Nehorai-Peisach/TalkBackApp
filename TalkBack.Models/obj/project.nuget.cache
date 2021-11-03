@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gw2Ntdxkzo3F+KH2qNPkhrmKH5Vwntix3K0/73jBszI8CEbgzX6NQdIzYTqFL7DxUa+x/OsXVJz1cekR1yesGg==",
+  "dgSpecHash": "HPQiLsDUx8AsQSTo198nOP7uIz9Pbh3WJPaaA55gK5n+7iVAekSEr9pkECwN8wP7/Bd/HBBjV19sGfFSqLxJwg==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Nehor\\Documents\\GitHub\\New folder\\TalkBack.Models\\TalkBack.Models.csproj",
+  "projectFilePath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nehor\\.nuget\\packages\\mongodb.bson\\2.13.2\\mongodb.bson.2.13.2.nupkg.sha512",
     "C:\\Users\\Nehor\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"

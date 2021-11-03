@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/dtrCFYlF5w1eihzVUbfawO+04i14ccSoIkH1WflgWj1EUP1rwgd3UbqiYkBfKLBDnfldbzGOiNbKSFLbPxzkw==",
+  "dgSpecHash": "eraW0itjxQTSnqTv6IKDii/w+EWXzChpIKG0wEhpOlNAjo8bSbz4AJxtqlf3dg6DrJrGNZdE6Oh0/h1pi80aDw==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Nehor\\Documents\\GitHub\\New folder\\TalkBack.BLL\\TalkBack.BLL.csproj",
+  "projectFilePath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.BLL\\TalkBack.BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nehor\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
     "C:\\Users\\Nehor\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
