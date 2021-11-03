@@ -13,8 +13,8 @@ const SignIn = ({ loginUser }) => {
         }}>
         <h1>Sign in</h1>
         <Form.Group>
-            <Form.Control placeholder='Username' onChange={e => setUsername(e.target.value)}/>
-            <Form.Control placeholder='Password' onChange={e=> setPassword(e.target.value)}/>
+            <Form.Control type='text' placeholder='Username' onChange={e => setUsername(e.target.value)}/>
+            <Form.Control type='password' placeholder='Password' onChange={e=> setPassword(e.target.value)}/>
         </Form.Group>
         <button type='submit' disabled={!username || !password}>Sign In</button>
     </Form>

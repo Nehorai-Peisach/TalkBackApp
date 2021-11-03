@@ -125,3 +125,4 @@ D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.UI\obj\Debug\net5.0\TalkBac
 D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.UI\obj\Debug\net5.0\ref\TalkBack.UI.dll
 D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.pdb
 D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.genruntimeconfig.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.csproj.CopyComplete
