@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Bson" Version="2.13.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TalkBack.BLL\TalkBack.BLL.csproj" />
+    <ProjectReference Include="..\TalkBack.DAL\TalkBack.DAL.csproj" />
+  </ItemGroup>
+
+</Project>

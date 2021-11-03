@@ -1,0 +1,86 @@
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\bin\Debug\net5.0\appsettings.Development.json
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\bin\Debug\net5.0\appsettings.json
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.exe
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.deps.json
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.runtimeconfig.json
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.runtimeconfig.dev.json
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\bin\Debug\net5.0\ref\TalkBack.UI.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.pdb
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.AssemblyInfoInputs.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.AssemblyInfo.cs
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.csproj.CoreCompileInputs.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.MvcApplicationPartsAssemblyInfo.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\obj\Debug\net5.0\staticwebassets\TalkBack.UI.StaticWebAssets.Manifest.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\obj\Debug\net5.0\staticwebassets\TalkBack.UI.StaticWebAssets.xml
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\obj\Debug\net5.0\scopedcss\bundle\TalkBack.UI.styles.css
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.RazorTargetAssemblyInfo.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\obj\Debug\net5.0\ref\TalkBack.UI.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.pdb
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.genruntimeconfig.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\bin\Debug\net5.0\appsettings.Development.json
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\bin\Debug\net5.0\appsettings.json
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.exe
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.deps.json
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.runtimeconfig.json
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.runtimeconfig.dev.json
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\bin\Debug\net5.0\ref\TalkBack.UI.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.pdb
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.csproj.AssemblyReference.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.AssemblyInfoInputs.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.AssemblyInfo.cs
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.csproj.CoreCompileInputs.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.MvcApplicationPartsAssemblyInfo.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\obj\Debug\net5.0\staticwebassets\TalkBack.UI.StaticWebAssets.Manifest.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\obj\Debug\net5.0\staticwebassets\TalkBack.UI.StaticWebAssets.xml
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\obj\Debug\net5.0\scopedcss\bundle\TalkBack.UI.styles.css
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.RazorTargetAssemblyInfo.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\obj\Debug\net5.0\ref\TalkBack.UI.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.pdb
+D:\Users\Nehor\Documents\GitHub\TalkBackProject\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.genruntimeconfig.cache
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.csproj.AssemblyReference.cache
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.AssemblyInfoInputs.cache
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.AssemblyInfo.cs
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.csproj.CoreCompileInputs.cache
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.MvcApplicationPartsAssemblyInfo.cache
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\obj\Debug\net5.0\ref\TalkBack.UI.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.pdb
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\appsettings.Development.json
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\appsettings.json
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.exe
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.deps.json
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.runtimeconfig.json
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.runtimeconfig.dev.json
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\ref\TalkBack.UI.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\TalkBack.UI.pdb
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\obj\Debug\net5.0\staticwebassets\TalkBack.UI.StaticWebAssets.Manifest.cache
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\obj\Debug\net5.0\staticwebassets\TalkBack.UI.StaticWebAssets.xml
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\obj\Debug\net5.0\scopedcss\bundle\TalkBack.UI.styles.css
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.RazorTargetAssemblyInfo.cache
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\obj\Debug\net5.0\TalkBack.UI.genruntimeconfig.cache
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\MongoDB.Bson.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\DnsClient.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\MongoDB.Driver.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\MongoDB.Driver.Core.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\MongoDB.Libmongocrypt.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\SharpCompress.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\runtimes\win\native\libzstd.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\runtimes\win\native\snappy32.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\runtimes\win\native\snappy64.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\TalkBack.BLL.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\TalkBack.DAL.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\TalkBack.Models.dll
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\TalkBack.BLL.pdb
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\TalkBack.DAL.pdb
+D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.UI\bin\Debug\net5.0\TalkBack.Models.pdb

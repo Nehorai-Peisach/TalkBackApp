@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TalkBack.UI", "TalkBack.UI\TalkBack.UI.csproj", "{982AAB1F-A863-4458-9EF1-9812CB606577}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TalkBack.BLL", "TalkBack.BLL\TalkBack.BLL.csproj", "{3CC7CDB4-327E-425A-AE8D-FF1D01628618}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TalkBack.DAL", "TalkBack.DAL\TalkBack.DAL.csproj", "{1A66027D-2EED-464E-9D7A-3166973DA3AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TalkBack.Models", "TalkBack.Models\TalkBack.Models.csproj", "{0D98E0AF-4A3F-4152-92C2-BC4C8F9018C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{982AAB1F-A863-4458-9EF1-9812CB606577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{982AAB1F-A863-4458-9EF1-9812CB606577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{982AAB1F-A863-4458-9EF1-9812CB606577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{982AAB1F-A863-4458-9EF1-9812CB606577}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CC7CDB4-327E-425A-AE8D-FF1D01628618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CC7CDB4-327E-425A-AE8D-FF1D01628618}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CC7CDB4-327E-425A-AE8D-FF1D01628618}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CC7CDB4-327E-425A-AE8D-FF1D01628618}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A66027D-2EED-464E-9D7A-3166973DA3AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A66027D-2EED-464E-9D7A-3166973DA3AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A66027D-2EED-464E-9D7A-3166973DA3AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A66027D-2EED-464E-9D7A-3166973DA3AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D98E0AF-4A3F-4152-92C2-BC4C8F9018C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D98E0AF-4A3F-4152-92C2-BC4C8F9018C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D98E0AF-4A3F-4152-92C2-BC4C8F9018C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D98E0AF-4A3F-4152-92C2-BC4C8F9018C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {897E94DF-BFD8-4502-A5C6-8E8BD6F95CF1}
+	EndGlobalSection
+EndGlobal
