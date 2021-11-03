@@ -570,11 +570,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\Nehor\\Documents\\GitHub\\New folder\\TalkBack.DAL\\TalkBack.DAL.csproj",
+      "projectUniqueName": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.DAL\\TalkBack.DAL.csproj",
       "projectName": "TalkBack.DAL",
-      "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\New folder\\TalkBack.DAL\\TalkBack.DAL.csproj",
+      "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.DAL\\TalkBack.DAL.csproj",
       "packagesPath": "C:\\Users\\Nehor\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\Nehor\\Documents\\GitHub\\New folder\\TalkBack.DAL\\obj\\",
+      "outputPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -595,8 +595,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Users\\Nehor\\Documents\\GitHub\\New folder\\TalkBack.Models\\TalkBack.Models.csproj": {
-              "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\New folder\\TalkBack.Models\\TalkBack.Models.csproj"
+            "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj": {
+              "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj"
             }
           }
         }
