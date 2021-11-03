@@ -1,8 +1,4 @@
 ﻿using Microsoft.AspNetCore.SignalR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TalkBack.BLL.Interfaces;
 using TalkBack.DAL.Models;
@@ -19,11 +15,18 @@ namespace TalkBack.UI.Hubs
         public Task LoginUser(User user)
         {
             var flag = service.Login(user.Username, user.Password);
+            var temp = room;
+            if(flag) temp = nextRoom;
 
-            if (flag) room = nextRoom;
+            Groups.AddToGroupAsync(Context.ConnectionId, temp);
+            return Clients.Group(temp).SendAsync("IsLogin", flag);
+        }
 
+        public Task ResisterUser(User user)
+        {
+            var flag = service.Register(user.Username, user.Password);
             Groups.AddToGroupAsync(Context.ConnectionId, room);
-            return Clients.Group(room).SendAsync("IsLogin", flag);
+            return Clients.Group(room).SendAsync("IsRegister", flag);
         }
     }
 }

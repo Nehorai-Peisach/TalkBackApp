@@ -19,7 +19,7 @@ namespace TalkBack.BLL.Services
         }
         public bool Register(string username, string password)
         {
-            if (!IsExist(username))
+            if (IsExist(username))
                 return false;
 
             repo.Add(new User() { Username = username, Password = password });

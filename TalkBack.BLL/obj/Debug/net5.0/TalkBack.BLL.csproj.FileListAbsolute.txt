@@ -32,3 +32,19 @@ D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.BLL\obj\Debug\net5.0\TalkBac
 D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.BLL\obj\Debug\net5.0\TalkBack.BLL.dll
 D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.BLL\obj\Debug\net5.0\ref\TalkBack.BLL.dll
 D:\Users\Nehor\Documents\GitHub\New folder\TalkBack.BLL\obj\Debug\net5.0\TalkBack.BLL.pdb
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\bin\Debug\net5.0\TalkBack.BLL.deps.json
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\bin\Debug\net5.0\TalkBack.BLL.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\bin\Debug\net5.0\ref\TalkBack.BLL.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\bin\Debug\net5.0\TalkBack.BLL.pdb
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\bin\Debug\net5.0\TalkBack.DAL.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\bin\Debug\net5.0\TalkBack.Models.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\bin\Debug\net5.0\TalkBack.DAL.pdb
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\bin\Debug\net5.0\TalkBack.Models.pdb
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\obj\Debug\net5.0\TalkBack.BLL.csproj.AssemblyReference.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\obj\Debug\net5.0\TalkBack.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\obj\Debug\net5.0\TalkBack.BLL.AssemblyInfoInputs.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\obj\Debug\net5.0\TalkBack.BLL.AssemblyInfo.cs
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\obj\Debug\net5.0\TalkBack.BLL.csproj.CoreCompileInputs.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\obj\Debug\net5.0\TalkBack.BLL.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\obj\Debug\net5.0\ref\TalkBack.BLL.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\obj\Debug\net5.0\TalkBack.BLL.pdb
