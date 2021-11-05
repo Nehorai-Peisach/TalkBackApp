@@ -40,6 +40,8 @@ namespace TalkBack.BLL.Services
         private bool IsExist(string username, string password = null)
         {
             var userInDb = repo.Get(username);
+            if (userInDb == null) return false;
+
             if (userInDb.Username == username)
             {
                 if (password != null)

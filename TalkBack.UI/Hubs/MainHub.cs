@@ -22,7 +22,7 @@ namespace TalkBack.UI.Hubs
             return Clients.Group(temp).SendAsync("IsLogin", flag);
         }
 
-        public Task ResisterUser(User user)
+        public Task RegisterUser(User user)
         {
             var flag = service.Register(user.Username, user.Password);
             Groups.AddToGroupAsync(Context.ConnectionId, room);
