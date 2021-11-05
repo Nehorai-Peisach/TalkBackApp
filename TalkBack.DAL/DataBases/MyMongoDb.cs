@@ -13,7 +13,7 @@ namespace TalkBack.DAL.DataBases
 
         public MyMongoDb(string database)
         {
-            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://ofeking8:talkback123@talkback.lq4qn.mongodb.net/TalkBack?retryWrites=true&w=majority");
+            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://Admin:talkback123@talkbackdb.fepwp.mongodb.net/TalkBackDb?retryWrites=true&w=majority");
             var client = new MongoClient(settings);
             Client = client.GetDatabase(database);
         }

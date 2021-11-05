@@ -21,21 +21,21 @@ namespace TalkBack.DAL.Repositories
         public User Get(string username)
         {
             var collection = db.Client.GetCollection<User>(table);
-            var filter = Builders<User>.Filter.Eq("Username", username);
+            var filter = Builders<User>.Filter.Eq(x => x.Username, username);
 
-            return collection.Find(filter).First();
+            return collection.Find(filter).FirstOrDefault();
         }
         public List<User> GetAll() => db.Client.GetCollection<User>(table).Find(new BsonDocument()).ToList();
         public void Remove(string username)
         {
             var collection = db.Client.GetCollection<User>(table);
-            var filter = Builders<User>.Filter.Eq("Username", username);
+            var filter = Builders<User>.Filter.Eq(x=> x.Username, username);
             collection.DeleteOne(filter);
         }
         public void Update(User input, string username)
         {
             var collection = db.Client.GetCollection<User>(table);
-            var filter = Builders<User>.Filter.Eq("Username", username);
+            var filter = Builders<User>.Filter.Eq(x => x.Username, username);
 
             collection.ReplaceOne(filter, input);
         }

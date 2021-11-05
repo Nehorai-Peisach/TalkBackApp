@@ -7,9 +7,8 @@ import Chat from './components/ChatHub/Chat';
 
 const App = () =>{
 
-  const [connection, setConnection] = useState();
-  const [messages, setMessages] = useState([]);
-  const [users, setUsers] = useState([]);
+  // const [messages, setMessages] = useState([]);
+  // const [users, setUsers] = useState([]);
 
   // const loginUser = async (username,password)=>{
   //   try{
@@ -41,30 +40,58 @@ const App = () =>{
   //   }
   // }
 
-  const closeConnection = async () =>{
-    try {
-      await connection.stop();
-    } catch (e) {
-      console.log(e);
+  
+  // const sendMessage = async (message) => {
+    //   try {
+      //     await connection.invoke("SendMessage", message);
+      //   } catch (e) {
+        //     console.log(e)
+        //   }
+        // }
+        
+  const [logged, setLogged] = useState();
+  const [connection, setConnection] = useState(
+    new  HubConnectionBuilder()
+    .withUrl(`https://localhost:44322/main`)
+    .configureLogging(LogLevel.Information)
+    .build());
+    
+    const connect =( hub ) => {
+      try{
+        const tempConnection = new  HubConnectionBuilder()
+        .withUrl(`https://localhost:44322/${hub}`)
+        .configureLogging(LogLevel.Information)
+        .build();
+        setConnection(tempConnection);
+      } catch(e) {
+        console.log(e);
+      }
     }
-  }
 
-  const sendMessage = async (message) => {
-    try {
-      await connection.invoke("SendMessage", message);
-    } catch (e) {
-      console.log(e)
+    const loggedIn = ({flag}) => {
+      setLogged(flag)
+      console.log(flag);
     }
-  }
 
-  return <div className='app'>
+    const closeConnection = async () =>{
+      try {
+        await connection.stop();
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    
+    return <div className='app'>
     <h2>TalkBack</h2>
     <hr className='line'/>
-    {!connection
-      ? <Main connection ={connection}/>
-      : <Chat messages={messages} sendMessage={sendMessage}
-        closeConnection={closeConnection} users ={users}/>}
-  </div>
+    {!logged
+      ? <Main loggedIn={loggedIn} connect={connect} connection ={connection} closeConnection={closeConnection}/>
+      : <h1>Connected</h1>
+    }
+    </div>
 }
 
 export default App;
+
+      // <Chat messages={messages} sendMessage={sendMessage}
+      //   closeConnection={closeConnection} users ={users}/>}
