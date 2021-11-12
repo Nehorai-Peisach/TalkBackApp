@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using TalkBack.BLL.Interfaces;
 using TalkBack.BLL.Services;
 using TalkBack.DAL.Interfaces;
+using TalkBack.DAL.Models;
 using TalkBack.DAL.Repositories;
 using TalkBack.UI.Hubs;
 
@@ -27,7 +28,7 @@ namespace TalkBack.UI
                 });
             });
 
-            services.AddSingleton<IDictionary<string, MyUser>>(options => new Dictionary<string, MyUser>());
+            services.AddSingleton<IDictionary<string, string>>(options => new Dictionary<string, string>());
 
             services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<IChatRepository, ChatRepository>();
@@ -46,9 +47,9 @@ namespace TalkBack.UI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHub<MainHub>("/main");
+                endpoints.MapHub<LoginHub>("/login");
                 endpoints.MapHub<ChatHub>("/chat");
-                endpoints.MapHub<MainHub>("/game");
+                endpoints.MapHub<LoginHub>("/game");
             });
         }
     }

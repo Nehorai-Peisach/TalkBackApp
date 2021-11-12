@@ -13,7 +13,7 @@ namespace TalkBack.DAL.Models
         public Guid UserId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public bool IsLoggedIn { get; set; }
+        public string ConnectionId { get; set; }
         //public Image MyProperty { get; set; }
         public int Wins { get; set; }
         public int Games { get; set; }

@@ -1,21 +1,17 @@
 import { useState } from "react"
 import { Form } from "react-bootstrap"
+import { useSelector } from "react-redux"
 
-const SignIn = ({ loggedIn, connect, connection, closeConnection }) => {
+const SignIn = () => {
+
+    const connection = useSelector(state => state.connectionLogin)
 
     const [username,setUsername] = useState();
     const [password,setPassword] = useState();
 
-    const loginUser = async ()=>{
+    const loginUser = async () =>{
         try{
-            await connect('main')
-            connection.on("IsLogin", (flag) =>{
-            flag ? console.log('Logged In!')
-                : console.log('Cant find user!');
-            loggedIn({flag});
-          })
-          await connection.start();
-          await connection.invoke("LoginUser", {username, password});
+            await connection.invoke("LoginUser", {username, password});
         } catch(e) {
           console.log(e);
         }
@@ -25,7 +21,6 @@ const SignIn = ({ loggedIn, connect, connection, closeConnection }) => {
         onSubmit={e => {
             e.preventDefault();
             loginUser();
-            closeConnection();
         }}>
         <h1>Sign in</h1>
         <Form.Group>

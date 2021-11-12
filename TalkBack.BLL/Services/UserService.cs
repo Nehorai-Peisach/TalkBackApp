@@ -25,17 +25,22 @@ namespace TalkBack.BLL.Services
             repo.Add(new User() { Username = username, Password = password });
             return true;
         }
-        public bool Login(string username, string password)
+        public User Login(string connection, string username, string password)
         {
             if (!IsExist(username, password))
-                return false;
+                return null; 
 
-            repo.Get(username).IsLoggedIn = true;
-            return true;
+            var user = repo.Get(username);
+            if (user.ConnectionId == null)
+                user.ConnectionId = connection;
+            return user;
         }
         public void Logout(string username)
         {
-            repo.Get(username).IsLoggedIn = false;
+            if (!IsExist(username)) return;
+
+            var user = repo.Get(username);
+            user.ConnectionId = default;
         }
         private bool IsExist(string username, string password = null)
         {
@@ -52,6 +57,14 @@ namespace TalkBack.BLL.Services
                 return true;
             }
             return false;
+        }
+
+        public void ClearConnections()
+        {
+            var allUsers = repo.GetAll();
+
+            foreach (var user in allUsers) 
+                user.ConnectionId = default;
         }
     }
 }

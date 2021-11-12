@@ -10,8 +10,9 @@ namespace TalkBack.BLL.Interfaces
     public interface IUserService
     {
         List<User> GetUsers();
-        bool Login(string username, string password);
+        User Login(string connection, string username, string password);
         bool Register(string username, string password);
         void Logout(string username);
+        void ClearConnections();
     }
 }

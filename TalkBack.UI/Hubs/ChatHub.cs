@@ -3,62 +3,38 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TalkBack.BLL.Interfaces;
+using TalkBack.DAL.Models;
 
 namespace TalkBack.UI.Hubs
 {
     public class ChatHub : Hub
     {
         private readonly string botUser;
-        private readonly IDictionary<string, MyUser> connections;
+        private static string room = "ChatHub";
+        private IUserService userService;
+        private IChatService chatService;
+        private readonly IDictionary<string, User> connections;
 
-        public ChatHub(IDictionary<string, MyUser> connections)
+        public ChatHub(IChatService chatService, IUserService userService, IDictionary<string, User> connections)
         {
-            botUser = "Bot";
+            this.userService = userService;
+            this.chatService = chatService;
             this.connections = connections;
         }
 
-        public override Task OnDisconnectedAsync(Exception exception)
+        //public async Task SendMessage(string message)
+        //{
+
+        //}
+
+        public async Task LoadUsers(User user)
         {
-            if (connections.TryGetValue(Context.ConnectionId,out MyUser userConnection))
-            {
-                connections.Remove(Context.ConnectionId);
-                Clients.Group(userConnection.Password)
-                    .SendAsync("ReceiveMessage", botUser, $"{userConnection.Username} has left.");
-
-                SendConnectedUsers(userConnection.Password);
-            }
-            return base.OnDisconnectedAsync(exception);
-        }
-
-        public async Task SendMessage(string message)
-        {
-            if (connections.TryGetValue(Context.ConnectionId, out MyUser userConnection))
-            {
-                await Clients.Group(userConnection.Password)
-                    .SendAsync("ReceiveMessage", userConnection.Username, message);
-            }
-        }
-
-        public async Task LoginUser(MyUser userConnection)
-        {
-
-
-            await Groups.AddToGroupAsync(Context.ConnectionId, userConnection.Password);
-
-            connections[Context.ConnectionId] = userConnection;
-
-            await Clients.Group(userConnection.Password).SendAsync("ReceiveMessage", botUser, $"{userConnection.Username} has joined {userConnection.Password}");
-
-            await SendConnectedUsers(userConnection.Password);
-        }
-
-        public Task SendConnectedUsers(string room)
-        {
-            var users = connections.Values
-                .Where(c => c.Password == room)
-                .Select(c => c.Username);
-
-            return Clients.Group(room).SendAsync("UsersInRoom", users);
+            var users = userService.GetUsers()
+                .Where(c => c.Username != user.Username)
+                .Select(c => c.Username).ToList();
+            await Groups.AddToGroupAsync(Context.ConnectionId, room);
+            await Clients.Group(room).SendAsync("GetUsers", users);
         }
     }
 }
