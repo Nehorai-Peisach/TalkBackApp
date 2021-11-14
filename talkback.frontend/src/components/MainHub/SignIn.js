@@ -1,20 +1,22 @@
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import { Form } from "react-bootstrap"
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 
 const SignIn = () => {
 
-    const connection = useSelector(state => state.connectionLogin)
-
+    
     const [username,setUsername] = useState();
     const [password,setPassword] = useState();
-
-    const loginUser = async () =>{
-        try{
-            await connection.invoke("LoginUser", {username, password});
-        } catch(e) {
-          console.log(e);
-        }
+    const connection = useSelector((state) => state.connectionLogin);
+    
+    const loginUser = () =>{
+        console.log(`the connection is:${connection}`)
+        connection.then((res) =>{
+            console.log(res);
+            res.connection.invoke("LoginUser", {username, password});
+        }).catch((err)=> {
+            console.log(err);
+        })
     }
 
     return <Form className='form-container sign-in-container'

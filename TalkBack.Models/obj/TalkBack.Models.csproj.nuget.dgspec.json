@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp-main\\TalkBack.Models\\TalkBack.Models.csproj": {}
+    "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp-main\\TalkBack.Models\\TalkBack.Models.csproj": {}
   },
   "projects": {
-    "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp-main\\TalkBack.Models\\TalkBack.Models.csproj": {
+    "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp-main\\TalkBack.Models\\TalkBack.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp-main\\TalkBack.Models\\TalkBack.Models.csproj",
+        "projectUniqueName": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp-main\\TalkBack.Models\\TalkBack.Models.csproj",
         "projectName": "TalkBack.Models",
-        "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp-main\\TalkBack.Models\\TalkBack.Models.csproj",
-        "packagesPath": "C:\\Users\\Nehor\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp-main\\TalkBack.Models\\obj\\",
+        "projectPath": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp-main\\TalkBack.Models\\TalkBack.Models.csproj",
+        "packagesPath": "C:\\Users\\ofekm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp-main\\TalkBack.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Nehor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ofekm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
