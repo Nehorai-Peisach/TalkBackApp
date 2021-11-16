@@ -14,5 +14,6 @@ namespace TalkBack.BLL.Interfaces
         bool Register(string username, string password);
         void Logout(string username);
         void ClearConnections();
+        void Update(User input);
     }
 }

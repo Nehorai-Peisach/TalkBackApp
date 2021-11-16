@@ -1,32 +1,32 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Main from './components/MainHub/Main';
-import Lobby from './components/Lobby/Lobby'
+import Login from './components/LoginHub/LoginWindow';
+import Lobby from './components/LobbyHub/Lobby'
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { connectLogin } from './components/GlobalStates/States/ConnectionLogin';
+import { useEffect, useState } from 'react';
+import { connectMain } from './components/GlobalStates/States/MainConnection';
 
 const App = () =>{
-  const currentUser = useSelector(state => state.connectionLogin.currentUser);
-  const dispatch = useDispatch();
-
-  const initialize = async () => {
-    console.log('inside initialize');
-    await dispatch(connectLogin());
-    console.log(connectLogin());
-  }
-
-  useEffect(() => {
-    initialize();
-  }, []);
   
+  const dispatch = useDispatch();
+  const [currentUser, setCurrentUser] = useState();
+  const global = useSelector(state => state.mainConnection);
+
+  useEffect(async () => {
+    global
+    .then((res) => setCurrentUser(res.currentUser))
+  },[global])
+  
+  useEffect(() => {
+    dispatch(connectMain());
+  },[]);
 
     return <div className='app'>
     <h2>TalkBack</h2>
     <hr className='line'/>
-    {!currentUser
-      ? <Main/>
-      : <Lobby/>
+    { !currentUser
+        ? <Login/>
+        : <Lobby/>
     }
     </div>
 }

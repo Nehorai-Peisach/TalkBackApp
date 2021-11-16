@@ -28,11 +28,11 @@ namespace TalkBack.BLL.Services
         public User Login(string connection, string username, string password)
         {
             if (!IsExist(username, password))
-                return null; 
+                return null;
 
             var user = repo.Get(username);
-            if (user.ConnectionId == null)
-                user.ConnectionId = connection;
+            user.ConnectionId = connection;
+            Update(user);
             return user;
         }
         public void Logout(string username)
@@ -65,6 +65,11 @@ namespace TalkBack.BLL.Services
 
             foreach (var user in allUsers) 
                 user.ConnectionId = default;
+        }
+
+        public void Update(User input)
+        {
+            repo.Update(input, input.Username);
         }
     }
 }

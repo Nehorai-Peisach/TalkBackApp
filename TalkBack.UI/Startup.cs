@@ -47,9 +47,7 @@ namespace TalkBack.UI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHub<LoginHub>("/login");
-                endpoints.MapHub<ChatHub>("/chat");
-                endpoints.MapHub<LoginHub>("/game");
+                endpoints.MapHub<MainHub>("/main");
             });
         }
     }

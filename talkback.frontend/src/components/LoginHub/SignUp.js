@@ -1,10 +1,10 @@
-import { useState, useCallback } from "react"
+import { useState } from "react"
 import { Form } from "react-bootstrap"
 import { useSelector } from "react-redux"
 
 const SignUp = ({ signUp, signUpClick }) => {
     
-    const connection = useSelector(state => state.connectionLogin)
+    const connection = useSelector(state => state.mainConnection)
     
     const [username,setUsername] = useState();
     const [password,setPassword] = useState();

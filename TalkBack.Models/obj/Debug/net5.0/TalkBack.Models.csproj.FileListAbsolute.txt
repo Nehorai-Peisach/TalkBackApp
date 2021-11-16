@@ -46,3 +46,15 @@ D:\Users\Nehor\Documents\GitHub\TalkBackApp-main\TalkBack.Models\obj\Debug\net5.
 D:\Users\Nehor\Documents\GitHub\TalkBackApp-main\TalkBack.Models\obj\Debug\net5.0\TalkBack.Models.dll
 D:\Users\Nehor\Documents\GitHub\TalkBackApp-main\TalkBack.Models\obj\Debug\net5.0\ref\TalkBack.Models.dll
 D:\Users\Nehor\Documents\GitHub\TalkBackApp-main\TalkBack.Models\obj\Debug\net5.0\TalkBack.Models.pdb
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.Models\bin\Debug\net5.0\TalkBack.Models.deps.json
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.Models\bin\Debug\net5.0\TalkBack.Models.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.Models\bin\Debug\net5.0\ref\TalkBack.Models.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.Models\bin\Debug\net5.0\TalkBack.Models.pdb
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.Models\obj\Debug\net5.0\TalkBack.Models.csproj.AssemblyReference.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.Models\obj\Debug\net5.0\TalkBack.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.Models\obj\Debug\net5.0\TalkBack.Models.AssemblyInfoInputs.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.Models\obj\Debug\net5.0\TalkBack.Models.AssemblyInfo.cs
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.Models\obj\Debug\net5.0\TalkBack.Models.csproj.CoreCompileInputs.cache
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.Models\obj\Debug\net5.0\TalkBack.Models.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.Models\obj\Debug\net5.0\ref\TalkBack.Models.dll
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.Models\obj\Debug\net5.0\TalkBack.Models.pdb
