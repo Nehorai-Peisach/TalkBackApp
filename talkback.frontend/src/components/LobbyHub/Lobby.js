@@ -16,8 +16,8 @@ const Lobby = ({ chat, connection, currentUser, users }) => {
     return <div>
         <ConnectedUsers userClicked={userClicked} users={users} currentUser={currentUser} connection={connection}/>
         {chat
-            ? <Chat sendMessage={sendMessage} chat={chat} connection={connection}/>
-            : <h4>Here is Chat!</h4>
+            ? <Chat currentUser={currentUser} sendMessage={sendMessage} chat={chat} connection={connection}/>
+            : <h4>Select a freind to chat with</h4>
         }
     </div>
 }

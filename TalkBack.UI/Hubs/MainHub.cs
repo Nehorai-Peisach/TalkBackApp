@@ -37,7 +37,7 @@ namespace TalkBack.UI.Hubs
             {
                 Sender = sender.Username,
                 Reciver = reciver,
-                Date = DateTime.Now,
+                Date = DateTime.Now.ToString("HH:mm"),
                 Text = text
             });
             chatService.Update(chat);

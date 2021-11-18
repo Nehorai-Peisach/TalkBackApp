@@ -1,0 +1,52 @@
+.message-container {
+    height: 50vh;
+    width: 80vh;
+    background-color: #E5DDD5;
+    overflow: auto;
+    padding: 10px;
+}
+
+.message {
+    display:inline-block;
+    word-break: break-word;
+   white-space: pre-wrap;
+   -moz-white-space: pre-wrap;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin: 1px 0px;
+}
+
+.sender {
+    text-align: right;
+    padding-right: 5px;
+}
+.reciver{
+    text-align: left;
+    padding-right: 5px;
+}
+
+.color-sender{
+    color: black;
+    background-color: #DCF8C6;
+}
+
+.color-reciver{
+    color: black;
+    background-color:white;
+}
+
+.message-text{
+    display: block;
+    font-size: 14px;
+}
+.message:hover > .message-name{
+    visibility: visible;
+    font-size: 8px;
+}
+.message-name{
+    visibility: hidden;
+    font-size: 0px;
+}
+.message-date{
+    font-size: 8px;
+}

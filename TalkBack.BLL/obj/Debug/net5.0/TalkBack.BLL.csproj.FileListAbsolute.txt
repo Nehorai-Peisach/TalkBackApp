@@ -81,3 +81,4 @@ D:\Users\Nehor\Documents\GitHub\TalkBackApp-main\TalkBack.BLL\obj\Debug\net5.0\T
 D:\Users\Nehor\Documents\GitHub\TalkBackApp-main\TalkBack.BLL\obj\Debug\net5.0\TalkBack.BLL.dll
 D:\Users\Nehor\Documents\GitHub\TalkBackApp-main\TalkBack.BLL\obj\Debug\net5.0\ref\TalkBack.BLL.dll
 D:\Users\Nehor\Documents\GitHub\TalkBackApp-main\TalkBack.BLL\obj\Debug\net5.0\TalkBack.BLL.pdb
+D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.BLL\obj\Debug\net5.0\TalkBack.BLL.csproj.CopyComplete

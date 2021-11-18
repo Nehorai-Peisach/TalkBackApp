@@ -2,9 +2,9 @@ import MessagesContainer from "./MessageContainer";
 import SendMessageForm from "./SendMessageForm";
 
 
-const Chat =({ chat, sendMessage }) => 
+const Chat =({ currentUser, chat, sendMessage, }) => 
     <div className='chat'>
-    <MessagesContainer messages={chat.messages}/>
+    <MessagesContainer currentUser={currentUser} messages={chat.messages}/>
     <SendMessageForm sendMessage={sendMessage}/>
     </div>
 

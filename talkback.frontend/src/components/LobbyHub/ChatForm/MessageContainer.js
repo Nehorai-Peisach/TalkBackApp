@@ -1,6 +1,7 @@
+import './messageContainer.css';
 import { useEffect,useRef } from "react";
 
-const MessagesContainer =({ messages }) =>{
+const MessagesContainer =({ currentUser, messages }) =>{
 debugger
     const messageRef = useRef();
 
@@ -16,10 +17,21 @@ debugger
 
     return <div ref={messageRef} className='message-container'>
         {messages.map((m, index) =>
-            <div key={index} className='user-message'>
-                <div className='message bg-primary'>{m.text}</div>
-                <div className='from-user'>{m.sender}</div>
-            </div>
+            m.sender == currentUser.username
+            ?   <div className='sender'>
+                    <div className='message color-sender' key={index}>
+                        <div className='message-text'>{m.text}</div>
+                        <div className='message-date'>{m.date}</div>
+                        <div className='message-name'>From: {m.sender}</div>
+                    </div>
+                </div>
+            :   <div className='reciver'>
+                    <div className='message color-reciver' key={index}>
+                        <div className='message-text'>{m.text}</div>
+                        <div className='message-date'>{m.date}</div>
+                        <div className='message-name'>From: {m.sender}</div>
+                    </div>
+                </div>
         )}
     </div>
 }

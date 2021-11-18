@@ -20,7 +20,7 @@ return <div className='app'>
   <h2>TalkBack</h2>
   <hr className='line'/>
   { !(currentUser && users)
-      ? <Login connection={connection}/>
+      ? <div className='game-grid'><Login  connection={connection}/></div>
       : <Lobby chat={chat} connection={connection} currentUser={currentUser} users={users}/>
   }
   </div>

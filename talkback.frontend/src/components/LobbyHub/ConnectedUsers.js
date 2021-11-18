@@ -1,24 +1,32 @@
-
+import './connectedUsers.css';
 const ConnectedUsers = ({ userClicked, users ,currentUser, connection }) => {
 
     return <div className='user-list'>
         <h4>Welcome {currentUser.username}!</h4>
-        <h4>Online</h4>
+        <hr className='line'/>
+        <h5>Online</h5>
         { users.map((u,index) =><div>
             {u.username!=currentUser.username
                 ? u.connectionId
-                    ? <button key={'on'+index} onClick={() => userClicked(u)}>{u.username}</button>
+                    ?<div className='user'>
+                        <div className='circle-on'/>
+                        <div className='online-user' key={'on'+index} onClick={()=> userClicked(u)}>{u.username}</div>
+                    </div>
                     : null
                 : null
             } </div>
         )}
-        <h4>Offline</h4>
+        <hr className='line'/>
+        <h5>Offline</h5>
         { users.map((u,index) =><div>
             {u.username!=currentUser.username
                 ? !u.connectionId
-                    ? <h6 key={'off'+index}>{u.username}</h6>
+                ?<div className='user'>
+                        <div className='circle-off'/>
+                        <div className='offline-user' key={'off'+index}>{u.username}</div>
+                    </div>
                     : null
-                : null
+                    : null
             } </div>
         )}
     </div>

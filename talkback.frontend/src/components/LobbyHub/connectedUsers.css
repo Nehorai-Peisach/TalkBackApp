@@ -1,0 +1,31 @@
+.user-list {
+    height: 55vh;
+    width: 25vh;
+    float: left;
+    background-color: white;
+    color:black;
+    padding: 10px;
+}
+.online-user{
+    cursor: pointer;
+}
+.offline-user{
+    color: grey;
+}
+.circle-on{
+    border-radius: 50%;
+    background-color: greenyellow;
+    width: 10px;
+    height: 10px;
+    margin: 7px;
+}
+.circle-off{
+    border-radius: 50%;
+    background-color: gray;
+    width: 10px;
+    height: 10px;
+    margin: 7px;
+}
+.user{
+    display: flex;
+}
