@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TalkBack.DAL.Models;
 
 namespace TalkBack.BLL.Interfaces
@@ -12,8 +8,7 @@ namespace TalkBack.BLL.Interfaces
         List<User> GetUsers();
         User Login(string connection, string username, string password);
         bool Register(string username, string password);
-        void Logout(string username);
         void ClearConnections();
-        void Update(User input);
+        void UpdateUser(User user);
     }
 }

@@ -11,33 +11,33 @@ namespace TalkBack.DAL.Repositories
     public class ChatRepository : IChatRepository
     {
         static string table = "AllChats";
-        MyMongoDb db = new MyMongoDb("Users");
+        MyMongoDb db = new MyMongoDb("Chats");
 
-        public void Add(Chat input)
+        public void Add(Chat chat)
         {
             var collection = db.Client.GetCollection<Chat>(table);
-            collection.InsertOne(input);
+            collection.InsertOne(chat);
         }
-        public Chat Get(string username)
+        public Chat Get(Chat chat)
         {
             var collection = db.Client.GetCollection<Chat>(table);
-            var filter = Builders<Chat>.Filter.Eq("Username", username);
+            var filter = Builders<Chat>.Filter.Eq("ChatId", chat.ChatId);
 
             return collection.Find(filter).First();
         }
         public List<Chat> GetAll() => db.Client.GetCollection<Chat>(table).Find(new BsonDocument()).ToList();
-        public void Remove(string username)
+        public void Remove(Chat chat)
         {
             var collection = db.Client.GetCollection<Chat>(table);
-            var filter = Builders<Chat>.Filter.Eq("Username", username);
+            var filter = Builders<Chat>.Filter.Eq("ChatId", chat.ChatId);
             collection.DeleteOne(filter);
         }
-        public void Update(Chat input, string username)
+        public void Update(Chat chat)
         {
             var collection = db.Client.GetCollection<Chat>(table);
-            var filter = Builders<Chat>.Filter.Eq("Username", username);
+            var filter = Builders<Chat>.Filter.Eq("ChatId", chat.ChatId);
 
-            collection.ReplaceOne(filter, input);
+            collection.ReplaceOne(filter, chat);
         }
     }
 }

@@ -1,23 +1,23 @@
+import './Lobby.css'
 import Chat from "./ChatForm/Chat";
 import ConnectedUsers from "./ConnectedUsers";
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { connectMain } from "../GlobalStates/States/MainConnection";
 
-const Lobby = () => {
-    const [currentUser, setCurrentUser] = useState();
-    const [users, setUsers] = useState();
-    const global = useSelector(state => state.mainConnection);
+const Lobby = ({ chat, connection, currentUser, users }) => {
 
-    useEffect(async () => {
-        global.then((res) => {
-            setCurrentUser(res.currentUser);
-            setUsers(res.users);
-        })
-    },[global])
-    return <div>{ !users
-        ? <h1>Loading...</h1>
-        : <ConnectedUsers currentUser={currentUser} users={users}/>
+    const sendMessage = async (message) => {
+        await connection.invoke("SendMessage", chat, message);
+    }
+
+    async function userClicked (otherUser){
+        await connection.invoke("GetChat", currentUser.username, otherUser.username);
+    };
+
+    return <div>
+        <ConnectedUsers userClicked={userClicked} users={users} currentUser={currentUser} connection={connection}/>
+        {chat
+            ? <Chat sendMessage={sendMessage} chat={chat} connection={connection}/>
+            : <h4>Here is Chat!</h4>
         }
     </div>
 }

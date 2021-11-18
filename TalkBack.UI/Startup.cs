@@ -28,7 +28,7 @@ namespace TalkBack.UI
                 });
             });
 
-            services.AddSingleton<IDictionary<string, string>>(options => new Dictionary<string, string>());
+            services.AddSingleton<IDictionary<string, User>>(options => new Dictionary<string, User>());
 
             services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<IChatRepository, ChatRepository>();

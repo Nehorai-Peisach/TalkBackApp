@@ -2,25 +2,17 @@ import { useState } from "react"
 import { Form } from "react-bootstrap"
 import { useSelector } from "react-redux"
 
-const SignUp = ({ signUp, signUpClick }) => {
-    
-    const connection = useSelector(state => state.mainConnection)
+const SignUp = ({ connection, signUp, signUpClick }) => {
     
     const [username,setUsername] = useState();
     const [password,setPassword] = useState();
     const [repassword,setRepassword] = useState();
 
     const registerUser = ()=>{
-        console.log(`the connection is:${connection}`)
-        connection.then((res) =>{
-            console.log(res);
-            console.log(`username: ${username}, password: ${password}`)
-            res.connection.invoke("RegisterUser", {username, password});
-
-        }).catch((err)=> {
-            console.log(err);
-        })
+        console.log(`username: ${username}, password: ${password}`)
+        connection.invoke("RegisterUser", {username, password});
     }
+    
     return <Form className='form-container sign-up-container'
         onSubmit={e => {
             e.preventDefault();

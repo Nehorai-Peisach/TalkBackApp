@@ -1,33 +1,28 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './components/LoginHub/LoginWindow';
+import Login from './components/LoginHub/Login';
 import Lobby from './components/LobbyHub/Lobby'
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { connectMain } from './components/GlobalStates/States/MainConnection';
+import Connect from './components/Connect'
 
 const App = () =>{
   
-  const dispatch = useDispatch();
+  const [connection, setConnection] = useState();
   const [currentUser, setCurrentUser] = useState();
-  const global = useSelector(state => state.mainConnection);
+  const [users, setUsers] = useState();
+  const [chat, setChat] = useState();
 
-  useEffect(async () => {
-    global
-    .then((res) => setCurrentUser(res.currentUser))
-  },[global])
-  
   useEffect(() => {
-    dispatch(connectMain());
-  },[]);
+    Connect(setConnection, setCurrentUser, setUsers, setChat);
+  }, [])
 
-    return <div className='app'>
-    <h2>TalkBack</h2>
-    <hr className='line'/>
-    { !currentUser
-        ? <Login/>
-        : <Lobby/>
-    }
-    </div>
+return <div className='app'>
+  <h2>TalkBack</h2>
+  <hr className='line'/>
+  { !(currentUser && users)
+      ? <Login connection={connection}/>
+      : <Lobby chat={chat} connection={connection} currentUser={currentUser} users={users}/>
+  }
+  </div>
 }
 export default App;

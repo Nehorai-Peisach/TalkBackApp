@@ -14,24 +14,39 @@ namespace TalkBack.BLL.Services
         private IChatRepository repo;
         public ChatService(IChatRepository repo) => this.repo = repo;
 
-        public void CreateChat(IChatRepository repo)
+        public void CreateChat(Chat chat) => repo.Add(chat);
+
+        public Chat GetChat(string sender, string reciver)
         {
-            throw new NotImplementedException();
+            var chat = repo.GetAll()
+                            .FirstOrDefault(x =>
+                            x.Users.Contains(sender)
+                            && x.Users.Contains(reciver));
+
+            if (chat == null)
+            {
+                chat = new Chat()
+                {
+                    Users = new string[] { sender, reciver },
+                    Messages = new List<Message>()
+                };
+                CreateChat(chat);
+            }
+
+            return chat;
         }
 
-        public void CreateChat()
+        public void SendMessage(Chat chat, Message message)
         {
-            throw new NotImplementedException();
+            repo.Get(chat)
+                .Messages
+                    .Add(message);
         }
 
-        public List<Message> GetChat(User sender, User reciver)
+        public void Update(Chat chat)
         {
-            throw new NotImplementedException();
-        }
-
-        public void SendMessage(Message message)
-        {
-            throw new NotImplementedException();
+            if (chat != default)
+                repo.Update(chat);
         }
     }
 }

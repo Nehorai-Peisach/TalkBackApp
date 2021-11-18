@@ -5,10 +5,10 @@ namespace TalkBack.DAL.Interfaces
 {
     public interface IChatRepository
     {
-        void Add(Chat input);
-        void Remove(string username);
-        Chat Get(string username);
+        void Add(Chat chat);
+        void Remove(Chat chat);
+        Chat Get(Chat chat);
         List<Chat> GetAll();
-        void Update(Chat input, string username);
+        void Update(Chat chat);
     }
 }

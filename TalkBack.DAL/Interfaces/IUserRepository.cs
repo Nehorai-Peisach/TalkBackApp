@@ -13,6 +13,6 @@ namespace TalkBack.DAL.Interfaces
         void Remove(string username);
         User Get(string username);
         List<User> GetAll();
-        void Update(User input, string username);
+        void Update(User input);
     }
 }

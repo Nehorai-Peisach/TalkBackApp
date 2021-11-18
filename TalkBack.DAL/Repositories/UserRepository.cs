@@ -32,10 +32,10 @@ namespace TalkBack.DAL.Repositories
             var filter = Builders<User>.Filter.Eq(x=> x.Username, username);
             collection.DeleteOne(filter);
         }
-        public void Update(User input, string username)
+        public void Update(User input)
         {
             var collection = db.Client.GetCollection<User>(table);
-            var filter = Builders<User>.Filter.Eq(x => x.Username, username);
+            var filter = Builders<User>.Filter.Eq(x => x.Username, input.Username);
 
             collection.ReplaceOne(filter, input);
         }

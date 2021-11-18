@@ -8,7 +8,11 @@ namespace TalkBack.BLL.Services
     public class UserService : IUserService
     {
         private IUserRepository repo;
-        public UserService(IUserRepository repo) => this.repo = repo;
+        public UserService(IUserRepository repo)
+        {
+            this.repo = repo;
+            ClearConnections();
+        }
 
         public List<User> GetUsers()
         {
@@ -31,16 +35,7 @@ namespace TalkBack.BLL.Services
                 return null;
 
             var user = repo.Get(username);
-            user.ConnectionId = connection;
-            Update(user);
             return user;
-        }
-        public void Logout(string username)
-        {
-            if (!IsExist(username)) return;
-
-            var user = repo.Get(username);
-            user.ConnectionId = default;
         }
         private bool IsExist(string username, string password = null)
         {
@@ -61,15 +56,20 @@ namespace TalkBack.BLL.Services
 
         public void ClearConnections()
         {
-            var allUsers = repo.GetAll();
-
-            foreach (var user in allUsers) 
-                user.ConnectionId = default;
+            foreach (var user in repo.GetAll())
+            {
+                if (user.ConnectionId != default)
+                {
+                    user.ConnectionId = default;
+                    repo.Update(user);
+                }
+            }
         }
 
-        public void Update(User input)
+        public void UpdateUser(User user)
         {
-            repo.Update(input, input.Username);
+            if (user != null)
+                repo.Update(user);
         }
     }
 }

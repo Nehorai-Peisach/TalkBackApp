@@ -9,8 +9,9 @@ namespace TalkBack.BLL.Interfaces
 {
     public interface IChatService
     {
-        void CreateChat();
-        List<Message> GetChat(User sender, User reciver);
-        void SendMessage(Message message);
+        void CreateChat(Chat chat);
+        Chat GetChat(string sender, string reciver);
+        void SendMessage(Chat chat, Message message);
+        void Update(Chat chat);
     }
 }

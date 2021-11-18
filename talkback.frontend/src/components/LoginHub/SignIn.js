@@ -1,33 +1,15 @@
-import { useState, useEffect} from "react"
+import { useState } from "react"
 import { Form } from "react-bootstrap"
-import { useSelector, useDispatch } from "react-redux";
-import { connectMain } from "../GlobalStates/States/MainConnection";
 
-const SignIn = () => {
+const SignIn = ( { loginUser }) => {
     
-    const dispatch = useDispatch();
     const [username,setUsername] = useState();
     const [password,setPassword] = useState();
-
-    const [connection, setConnection] = useState();
-    const mainConnection = useSelector(state => state.mainConnection);
-    useEffect(() => {
-        mainConnection.then(
-            (res) => setConnection(res.connection)
-        );
-    }, [mainConnection])
-    
-
-    const loginUser = async () =>{
-        await connection.invoke("LoginUser", {username, password});
-        await connection.invoke("LoadUsers", {username});
-        dispatch(connectMain());
-    }
 
     return <Form className='form-container sign-in-container'
         onSubmit={e => {
             e.preventDefault();
-            loginUser();
+            loginUser(username, password);
         }}>
         <h1>Sign in</h1>
         <Form.Group>
