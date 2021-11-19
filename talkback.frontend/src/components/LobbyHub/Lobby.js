@@ -1,9 +1,9 @@
 import './Lobby.css'
-import Chat from "./ChatForm/Chat";
-import ConnectedUsers from "./ConnectedUsers";
-import { useState, useEffect } from "react";
+import ChatContainer from './ChatContainer/ChatContainer'
+import UsersContainer from "./UsersContainer/UsersContainer";
+import GameContainer from    './GameContainer/GameContainer';
 
-const Lobby = ({ chat, connection, currentUser, users }) => {
+const Lobby = ({game, chat, connection, currentUser, users }) => {
 
     const sendMessage = async (message) => {
         await connection.invoke("SendMessage", chat, message);
@@ -13,11 +13,16 @@ const Lobby = ({ chat, connection, currentUser, users }) => {
         await connection.invoke("GetChat", currentUser.username, otherUser.username);
     };
 
-    return <div>
-        <ConnectedUsers userClicked={userClicked} users={users} currentUser={currentUser} connection={connection}/>
+    return <div className='lobby'>
+        <UsersContainer userClicked={userClicked} users={users} currentUser={currentUser} connection={connection}/>
         {chat
-            ? <Chat currentUser={currentUser} sendMessage={sendMessage} chat={chat} connection={connection}/>
-            : <h4>Select a freind to chat with</h4>
+            ? !game
+                ?   <div className='lobby'>
+                        {/* <GameContainer></GameContainer> */}
+                        <ChatContainer currentUser={currentUser} sendMessage={sendMessage} chat={chat} connection={connection}/>
+                    </div>
+                :   <ChatContainer currentUser={currentUser} sendMessage={sendMessage} chat={chat} connection={connection}/>
+            : <h4 className='lobby-wating'>Select a freind to chat with</h4>
         }
     </div>
 }

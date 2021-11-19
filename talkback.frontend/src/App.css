@@ -1,4 +1,4 @@
-Form {
+/* Form {
   width: 100%;
 }
 
@@ -8,4 +8,10 @@ hr.line {
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
+} */
+
+#app{
+  display: grid;
+  place-content: center;
+  height: 100vh;
 }

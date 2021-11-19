@@ -4,25 +4,57 @@ import Login from './components/LoginHub/Login';
 import Lobby from './components/LobbyHub/Lobby'
 import { useEffect, useState } from 'react';
 import Connect from './components/Connect'
+import GameBoard from './new/GameBoard/GameBoard';
 
 const App = () =>{
-  
-  const [connection, setConnection] = useState();
-  const [currentUser, setCurrentUser] = useState();
-  const [users, setUsers] = useState();
-  const [chat, setChat] = useState();
-
-  useEffect(() => {
-    Connect(setConnection, setCurrentUser, setUsers, setChat);
-  }, [])
-
-return <div className='app'>
-  <h2>TalkBack</h2>
-  <hr className='line'/>
-  { !(currentUser && users)
-      ? <div className='game-grid'><Login  connection={connection}/></div>
-      : <Lobby chat={chat} connection={connection} currentUser={currentUser} users={users}/>
-  }
+  return <div id='app'>
+    <GameBoard/>
   </div>
 }
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const App = () =>{
+// const [connection, setConnection] = useState();
+// const [currentUser, setCurrentUser] = useState();
+// const [users, setUsers] = useState();
+// const [chat, setChat] = useState();
+
+// useEffect(() => {
+//   Connect(setConnection, setCurrentUser, setUsers, setChat);
+// }, [])
+// return <div id='app'>
+//   <div className='app'>
+//     <h2>TalkBack</h2>
+//     <hr className='line'/>
+//     { !(currentUser && users)
+//         ? <div className='game-grid'><Login  connection={connection}/></div>
+//         : <Lobby chat={chat} connection={connection} currentUser={currentUser} users={users}/>
+//     }
+//     </div>
+// </div>
+// }
+// export default App;

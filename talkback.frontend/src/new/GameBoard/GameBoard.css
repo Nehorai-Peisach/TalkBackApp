@@ -1,0 +1,64 @@
+.board{
+    width: 80vh;
+    height: 75vh;
+    background-color:rgb(255, 188, 140);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.side{
+    display: grid;
+    border: black solid 1px;
+    grid-template-columns: 1fr 12fr 1fr;
+    grid-template-rows: 1fr 10fr 3fr 10fr 1fr;
+}
+
+.topSide, .botSide, .leftSide, .rightSide{
+    background-color:rgb(179, 122, 81);
+}
+
+.topSide{
+    grid-column: 1/4;
+    grid-row: 1;
+}
+.botSide{
+    grid-column: 1/4;
+    grid-row: 5;
+}
+.leftSide{
+    grid-column: 1;
+    grid-row: 1/6;
+}
+.rightSide{
+    grid-column: 3;
+    grid-row: 1/6;
+}
+
+.boardtop, .boardbot{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+.boardtop{
+    grid-column: 2;
+    grid-row: 2;
+}
+.boardbot{
+    grid-column: 2;
+    grid-row: 4;
+}
+/* 
+.boardbot> div{
+    background-color: black;
+}
+.boardbot> div:nth-child(odd){
+    background-color: red;
+}
+.boardtop> div{
+    background-color: red;
+}
+.boardtop> div:nth-child(odd){
+    background-color: black;
+} */
+
+
+
+

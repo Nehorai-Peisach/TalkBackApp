@@ -1,0 +1,43 @@
+.boardRedPartdown, .boardBlackPartdown, .boardRedPartup, .boardBlackPartup{
+    display: flex;
+    flex: 5;
+    background-repeat: no-repeat;
+    background-size:100%;
+    
+}
+.boardRedPartdown {
+    flex-direction: column;
+    background-image: url('../assets/images/REDDOWN.svg');
+}
+.boardBlackPartdown {
+    flex-direction: column;
+    background-image: url('../assets/images/BLACKDOWN.svg');
+}
+.boardRedPartup {
+    flex-direction: column-reverse;
+    background-image: url('../assets/images/REDUP.svg');
+}
+.boardBlackPartup {
+    flex-direction: column-reverse;
+    background-image: url('../assets/images/BLACKUP.svg');
+}
+
+
+.blackPeice, .whitePeice{
+    width: 100%;
+    height: 19%;
+    background-repeat: no-repeat;
+}
+.blackPeice{
+    background-image: url('../assets/images/BlackPeice.svg');
+}
+.whitePeice{
+    background-image: url('../assets/images/WhitePeice.svg');
+}
+
+.blackPeice:hover, .whitePeice:hover{
+    cursor: grab;
+}
+.blackPeice:active, .whitePeice:active{
+    cursor: grabbing;
+}

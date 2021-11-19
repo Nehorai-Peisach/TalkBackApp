@@ -1,23 +1,26 @@
 .bar{
-    height: 5vh;
-    width: 80vh;
+    height: auto;
+    width: auto;
     background-color: #F0F0F0;
+    display: box;
 }
 .btn {
     background: #51585C;
     color: white;
-    height: 5vh;
-    width: 5vh;
-    margin: 0px;
-    padding: 10px;
+    height: 4vh;
+    width: 4vh;
+    margin: 5px 1px;
+    padding: 0px;
     vertical-align:0px;
-    border-radius: 50%;
+    border-radius: 2vh;
 }
-
+.send{
+    width: 6vh;
+}
 .message-input{
     background-color: white;
     height: 4vh;
-    width: 70vh;
+    width: 65vh;
     margin: 0px;
     padding: 15px;
     border-radius: 50px;

@@ -1,6 +1,5 @@
 import './sendMessage.css';
 import { useState } from "react"
-import { FormControl, InputGroup, Button, Form, FormGroup } from "react-bootstrap"
 
 const SendMessageForm = ({ sendMessage }) => {
 
@@ -13,7 +12,8 @@ const SendMessageForm = ({ sendMessage }) => {
     return <div className='bar'>
                 <input className='message-input' placeholder='message...'
                 onChange={e => setMessage(e.target.value)} value={message}/>
-                    <button className='btn' onClick={() => onClick()} disabled={!message}>»</button>
+                    <button className='btn' onClick={() => onClick()} disabled={!message}>◘</button>
+                    <button className='btn send' onClick={() => onClick()} disabled={!message}>»</button>
             </div>
 }
 
