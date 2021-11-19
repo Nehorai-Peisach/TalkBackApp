@@ -7,19 +7,19 @@
 }
 .boardRedPartdown {
     flex-direction: column;
-    background-image: url('../assets/images/REDDOWN.svg');
+    background-image: url('../../../../assets/images/REDDOWN.svg');
 }
 .boardBlackPartdown {
     flex-direction: column;
-    background-image: url('../assets/images/BLACKDOWN.svg');
+    background-image: url('../../../../assets/images/BLACKDOWN.svg');
 }
 .boardRedPartup {
     flex-direction: column-reverse;
-    background-image: url('../assets/images/REDUP.svg');
+    background-image: url('../../../../assets/images/REDUP.svg');
 }
 .boardBlackPartup {
     flex-direction: column-reverse;
-    background-image: url('../assets/images/BLACKUP.svg');
+    background-image: url('../../../../assets/images/BLACKUP.svg');
 }
 
 
@@ -29,10 +29,10 @@
     background-repeat: no-repeat;
 }
 .blackPeice{
-    background-image: url('../assets/images/BlackPeice.svg');
+    background-image: url('../../../../assets/images/BlackPeice.svg');
 }
 .whitePeice{
-    background-image: url('../assets/images/WhitePeice.svg');
+    background-image: url('../../../../assets/images/WhitePeice.svg');
 }
 
 .blackPeice:hover, .whitePeice:hover{

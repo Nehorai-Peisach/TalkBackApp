@@ -1,7 +1,7 @@
 import './Lobby.css'
 import ChatContainer from './ChatContainer/ChatContainer'
 import UsersContainer from "./UsersContainer/UsersContainer";
-import GameContainer from    './GameContainer/GameContainer';
+import GameBoard from './GameContainer/GameBoard/GameBoard';
 
 const Lobby = ({game, chat, connection, currentUser, users }) => {
 
@@ -18,7 +18,7 @@ const Lobby = ({game, chat, connection, currentUser, users }) => {
         {chat
             ? !game
                 ?   <div className='lobby'>
-                        {/* <GameContainer></GameContainer> */}
+                        <GameBoard/>
                         <ChatContainer currentUser={currentUser} sendMessage={sendMessage} chat={chat} connection={connection}/>
                     </div>
                 :   <ChatContainer currentUser={currentUser} sendMessage={sendMessage} chat={chat} connection={connection}/>

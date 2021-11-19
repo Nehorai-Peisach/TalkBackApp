@@ -18,6 +18,13 @@ namespace TalkBack.UI.Hubs
             this.userService = userService;
         }
 
+
+        public async Task RollDice(Chat chat)
+        {
+            var rnd = new Random();
+            await Clients.Group(chat.ChatId.ToString()).SendAsync("Dice", rnd.Next(1,7), rnd.Next(1, 7));
+        }
+
         public async Task GetChat(string currentUser, string otherUser)
         {
             if(currentUser != null && otherUser != null)

@@ -1,11 +1,15 @@
 import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 
-const Connect = (setConnection, setCurrentUser, setUsers, setChat) => {
+const Connect = (setDices, setConnection, setCurrentUser, setUsers, setChat) => {
     let connection = new HubConnectionBuilder()
     .withUrl('https://localhost:44322/main')
     .configureLogging(LogLevel.Information)
     .build();
     
+    connection.on("Dice", (diec1, dice2) =>{
+        
+    });
+
     connection.on("IsLogined", (user) =>{
         !user 
             ? console.log('Cant find user!')
