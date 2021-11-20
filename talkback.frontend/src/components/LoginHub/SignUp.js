@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { Form } from "react-bootstrap"
-import { useSelector } from "react-redux"
 
 const SignUp = ({ connection, signUp, signUpClick }) => {
     

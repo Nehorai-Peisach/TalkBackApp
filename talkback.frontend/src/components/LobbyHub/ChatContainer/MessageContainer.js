@@ -2,7 +2,6 @@ import './messageContainer.css';
 import { useEffect,useRef } from "react";
 
 const MessagesContainer =({ currentUser, messages }) =>{
-debugger
     const messageRef = useRef();
 
     useEffect(() => {

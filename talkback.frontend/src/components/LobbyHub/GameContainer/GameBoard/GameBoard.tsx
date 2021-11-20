@@ -1,25 +1,61 @@
 import './GameBoard.css';
 import Board from './Board';
-import {useRef} from 'react'
+import React, {useRef, useState} from 'react'
+import Rules from '../GameRules/Rules';
+// import { GamePieces } from '../Tile/Tile';
+
+interface Piece {
+    x: number;
+    y: number;
+}
+
+const intialBoard: Piece[] = [];
 
 export default function GameBoard() {
-    const board = <Board/>
+    let board = <Board/>
+    const [activePiece, setActivePiece] = useState<HTMLElement | null>(null);
+    const [pieces, setPieces] =useState<Piece[]>(intialBoard);
+    const rules = new Rules();
+    let privousTri;
+
     const boardRef = useRef<HTMLDivElement>(null);
 
-    let activePiece: HTMLElement | null= null;
+    const [gridX, setGridX] = useState(0);
+    const [gridY, setGridY] = useState(0);
 
-    function dropPeice(){
-        if(activePiece){
+    function dropPiece(e: React.MouseEvent){
+        const gameBoard = boardRef.current;
+        if(activePiece && gameBoard){
+            const x = Math.floor((e.clientX - gameBoard.offsetLeft)/50);
+            const y = Math.ceil(Math.abs((e.clientY - gameBoard.offsetTop - 650)/50));
+
+            
+            //Update the piece position
             activePiece.style.zIndex = '1';
-            activePiece = null;
+            console.log(x,y);
+            // setPieces((value) => {
+            //     const pieces = value.map((p) => {
+            //         if(p.x === gridX && p.y === gridY){
+            //             rules.isValidMove(gridX, gridY, x, y);
+            //             p.x = x;
+            //             p.y = y;
+            //         }
+            //         return p;
+            //     });
+            //     return pieces;
+            // })
+            setActivePiece(null);
         }
     }
     
     function grabPiece(e: React.MouseEvent){
         const element = e.target as HTMLElement;
-        if(element.classList.contains("whitePeice") || element.classList.contains("blackPeice")){
+        const gameBoard = boardRef.current;
+        if((element.classList.contains("whitePeice") || element.classList.contains("blackPeice")) && gameBoard){
+            setGridX(Math.floor((e.clientX - gameBoard.offsetLeft)/50));
+            setGridY(Math.abs(Math.ceil(e.clientY - gameBoard.offsetTop - 650) / 50));
             element.style.zIndex = '2';
-            activePiece = element;
+            setActivePiece(element);
         }
     }
     
@@ -35,7 +71,7 @@ export default function GameBoard() {
             activePiece.style.position = 'absolute';
             activePiece.style.height = '5.6vh';
             activePiece.style.width = '5.6vh';
-            // activePiece.style.left = `${x}px`;
+            activePiece.style.left = `${x}px`;
             activePiece.style.top = `${y}px`;
 
             if(x < minX){
@@ -58,10 +94,9 @@ export default function GameBoard() {
 
     return <div 
     ref={boardRef}
-    onMouseUp={()=> dropPeice()}
+    onMouseUp={(e)=> dropPiece(e)}
     onMouseMove={e=> movePiece(e)}
     onMouseDown={e => grabPiece(e)}
-    className='board'
-    
-    >{board}</div>
+    className='board'>
+        {board}</div>
 }

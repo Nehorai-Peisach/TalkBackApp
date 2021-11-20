@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.UI\\TalkBack.UI.csproj": {}
+    "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.UI\\TalkBack.UI.csproj": {}
   },
   "projects": {
-    "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.BLL\\TalkBack.BLL.csproj": {
+    "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.BLL\\TalkBack.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.BLL\\TalkBack.BLL.csproj",
+        "projectUniqueName": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.BLL\\TalkBack.BLL.csproj",
         "projectName": "TalkBack.BLL",
-        "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.BLL\\TalkBack.BLL.csproj",
-        "packagesPath": "C:\\Users\\Nehor\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.BLL\\obj\\",
+        "projectPath": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.BLL\\TalkBack.BLL.csproj",
+        "packagesPath": "C:\\Users\\ofekm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Nehor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ofekm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -32,11 +34,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.DAL\\TalkBack.DAL.csproj": {
-                "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.DAL\\TalkBack.DAL.csproj"
+              "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.DAL\\TalkBack.DAL.csproj": {
+                "projectPath": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.DAL\\TalkBack.DAL.csproj"
               },
-              "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj": {
-                "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj"
+              "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj": {
+                "projectPath": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj"
               }
             }
           }
@@ -69,22 +71,24 @@
         }
       }
     },
-    "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.DAL\\TalkBack.DAL.csproj": {
+    "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.DAL\\TalkBack.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.DAL\\TalkBack.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.DAL\\TalkBack.DAL.csproj",
         "projectName": "TalkBack.DAL",
-        "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.DAL\\TalkBack.DAL.csproj",
-        "packagesPath": "C:\\Users\\Nehor\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.DAL\\obj\\",
+        "projectPath": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.DAL\\TalkBack.DAL.csproj",
+        "packagesPath": "C:\\Users\\ofekm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Nehor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ofekm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -97,8 +101,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj": {
-                "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj"
+              "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj": {
+                "projectPath": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj"
               }
             }
           }
@@ -141,22 +145,24 @@
         }
       }
     },
-    "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj": {
+    "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj",
+        "projectUniqueName": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj",
         "projectName": "TalkBack.Models",
-        "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj",
-        "packagesPath": "C:\\Users\\Nehor\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.Models\\obj\\",
+        "projectPath": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.Models\\TalkBack.Models.csproj",
+        "packagesPath": "C:\\Users\\ofekm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Nehor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ofekm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -205,22 +211,24 @@
         }
       }
     },
-    "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.UI\\TalkBack.UI.csproj": {
+    "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.UI\\TalkBack.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.UI\\TalkBack.UI.csproj",
+        "projectUniqueName": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.UI\\TalkBack.UI.csproj",
         "projectName": "TalkBack.UI",
-        "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.UI\\TalkBack.UI.csproj",
-        "packagesPath": "C:\\Users\\Nehor\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.UI\\obj\\",
+        "projectPath": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.UI\\TalkBack.UI.csproj",
+        "packagesPath": "C:\\Users\\ofekm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.UI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Nehor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ofekm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -233,11 +241,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.BLL\\TalkBack.BLL.csproj": {
-                "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.BLL\\TalkBack.BLL.csproj"
+              "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.BLL\\TalkBack.BLL.csproj": {
+                "projectPath": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.BLL\\TalkBack.BLL.csproj"
               },
-              "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.DAL\\TalkBack.DAL.csproj": {
-                "projectPath": "D:\\Users\\Nehor\\Documents\\GitHub\\TalkBackApp\\TalkBack.DAL\\TalkBack.DAL.csproj"
+              "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.DAL\\TalkBack.DAL.csproj": {
+                "projectPath": "C:\\Users\\ofekm\\OneDrive\\מסמכים\\GitHub\\TalkBackApp\\TalkBack.DAL\\TalkBack.DAL.csproj"
               }
             }
           }

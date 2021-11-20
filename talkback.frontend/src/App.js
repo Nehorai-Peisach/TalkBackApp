@@ -12,9 +12,14 @@ const [users, setUsers] = useState();
 const [chat, setChat] = useState();
 const [dices, setDices] = useState();
 
+const getDices = async (dice1, dice2) => {
+  await connection.invoke("RollDice",(dice1), (dice2));
+}
+
 useEffect(() => {
   Connect(setDices, setConnection, setCurrentUser, setUsers, setChat);
 }, [])
+
 return <div id='app'>
   <div className='app'>
     <h2>TalkBack</h2>

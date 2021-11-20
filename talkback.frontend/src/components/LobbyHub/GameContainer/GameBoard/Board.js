@@ -1,25 +1,69 @@
-import Tile from "../Tile/Tile"
+import Triangle from "../Tile/Triangle"
 
-const Board = () =>
-<div className='board'>
+const triangles= [];
+const White = <div className='whitePeice'/>;
+const Black = <div className='blackPeice'/>;
+const makeBoard = () => {
+    for (let index = 0; index <= 24; index++) {
+        let input;
+        switch(index){
+            case 1: input= amount(2,White); break;
+            case 6: input= amount(5,Black); break;
+            case 8: input= amount(3,Black); break;
+            case 12: input= amount(5,White); break;
+            case 13: input= amount(5,Black); break;
+            case 17: input= amount(3,White); break;
+            case 19: input= amount(5,White); break;
+            case 24: input= amount(2,Black); break;
+        }
+        
+        if(index < 13){
+            if(index % 2 === 0){
+                triangles.push(<Triangle number={index} triangleType={'boardRedPartdown'} pieces={input}/>)
+            } else{
+                triangles.push(<Triangle number={index} triangleType={'boardBlackPartdown'} pieces={input}/>)
+            }
+        }
+        else{
+            if(index % 2 === 0){
+                triangles.push(<Triangle number={index} triangleType={'boardBlackPartup'} pieces={input}/>)
+            } else{
+                triangles.push(<Triangle number={index} triangleType={'boardRedPartup'} pieces={input}/>)
+            }
+        }
+    }
+}
+const amount = (number, piece) => {
+    const lst = [];
+    for (let i = 0; i < number; i++) {
+           lst.push(piece);
+    }
+    return lst;    
+}
+
+const Board = () =>{
+    
+    
+    return <div className='board'>
+    {makeBoard()}
     <div className='side'>
         <div className='topSide'/>
         <div className='leftSide'/>
         <div className='boardtop'>
-            <Tile number={12}/>
-            <Tile number={11}/>
-            <Tile number={10}/>
-            <Tile number={9}/>
-            <Tile number={8}/>
-            <Tile number={7}/>
+            {triangles[1]}
+            {triangles[2]}
+            {triangles[3]}
+            {triangles[4]}
+            {triangles[5]}
+            {triangles[6]}
         </div>
         <div className='boardbot'>
-            <Tile number={13}/>
-            <Tile number={14}/>
-            <Tile number={15}/>
-            <Tile number={16}/>
-            <Tile number={17}/>
-            <Tile number={18}/>
+            {triangles[13]}
+            {triangles[14]}
+            {triangles[15]}
+            {triangles[16]}
+            {triangles[17]}
+            {triangles[18]}
         </div>
         <div className='rightSide'/>
         <div className='botSide'/>
@@ -28,24 +72,24 @@ const Board = () =>
         <div className='topSide'/>
         <div className='leftSide'/>
         <div className='boardtop'>
-            <Tile number={6}/>
-            <Tile number={5}/>
-            <Tile number={4}/>
-            <Tile number={3}/>
-            <Tile number={2}/>
-            <Tile number={1}/>
+            {triangles[7]}
+            {triangles[8]}
+            {triangles[9]}
+            {triangles[10]}
+            {triangles[11]}
+            {triangles[12]}
         </div>
         <div className='boardbot'>
-            <Tile number={19}/>
-            <Tile number={20}/>
-            <Tile number={21}/>
-            <Tile number={22}/>
-            <Tile number={23}/>
-            <Tile number={24}/>
+            {triangles[19]}
+            {triangles[20]}
+            {triangles[21]}
+            {triangles[22]}
+            {triangles[23]}
+            {triangles[24]}
         </div>
         <div className='rightSide'/>
         <div className='botSide'/>
     </div>
 </div>
-
+}
 export default Board;

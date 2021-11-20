@@ -6,8 +6,8 @@ const Connect = (setDices, setConnection, setCurrentUser, setUsers, setChat) => 
     .configureLogging(LogLevel.Information)
     .build();
     
-    connection.on("Dice", (diec1, dice2) =>{
-        
+    connection.on("Dice", (dice1, dice2) =>{
+        setDices(dice1,dice2);
     });
 
     connection.on("IsLogined", (user) =>{
