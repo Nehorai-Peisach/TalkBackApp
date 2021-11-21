@@ -1,6 +1,6 @@
 .boardRedPartdown, .boardBlackPartdown, .boardRedPartup, .boardBlackPartup{
     display: flex;
-    flex: 5;
+    flex-direction: column;
     background-repeat: no-repeat;
     background-size:100%;
     

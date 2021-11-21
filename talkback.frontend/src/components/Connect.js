@@ -1,11 +1,15 @@
 import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 
-const Connect = (setDices, setConnection, setCurrentUser, setUsers, setChat) => {
+const Connect = (setMove, setDices, setConnection, setCurrentUser, setUsers, setChat) => {
     let connection = new HubConnectionBuilder()
     .withUrl('https://localhost:44322/main')
     .configureLogging(LogLevel.Information)
     .build();
     
+    connection.on("UpdateBoard", (move) =>{
+        setMove(move);
+    });
+
     connection.on("Dice", (dice1, dice2) =>{
         setDices(dice1,dice2);
     });

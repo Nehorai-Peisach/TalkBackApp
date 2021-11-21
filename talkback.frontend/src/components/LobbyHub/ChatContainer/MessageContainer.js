@@ -16,7 +16,7 @@ const MessagesContainer =({ currentUser, messages }) =>{
 
     return <div ref={messageRef} className='message-container'>
         {messages.map((m, index) =>
-            m.sender == currentUser.username
+            m.sender === currentUser.username
             ?   <div className='sender'>
                     <div className='message color-sender' key={index}>
                         <div className='message-text'>{m.text}</div>

@@ -19,10 +19,16 @@ namespace TalkBack.UI.Hubs
         }
 
 
+        public async Task UpdateBoard(Chat chat, string pieceId, string currentPlaceId, string nextPlaceId)
+        {
+            var lst = new string[] { pieceId, currentPlaceId, nextPlaceId };
+            await Clients.Group(chat.ChatId.ToString()).SendAsync("UpdateBoard", lst);
+        }
+
         public async Task RollDice(Chat chat)
         {
             var rnd = new Random();
-            await Clients.Group(chat.ChatId.ToString()).SendAsync("Dice", rnd.Next(1,7), rnd.Next(1, 7));
+            await Clients.Group(chat.ChatId.ToString()).SendAsync("GetDice", rnd.Next(1,7), rnd.Next(1, 7));
         }
 
         public async Task GetChat(string currentUser, string otherUser)
