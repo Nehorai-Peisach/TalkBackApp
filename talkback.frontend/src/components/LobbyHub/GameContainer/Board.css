@@ -1,0 +1,53 @@
+.boardRedPartdown, .boardBlackPartdown, .boardRedPartup, .boardBlackPartup{
+    display: flex;
+    justify-content: flex-End;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-size:100%;
+    
+}
+.boardRedPartdown {
+    flex-direction: column-reverse;
+    background-image: url('../../../assets/images/REDDOWN.svg');
+}
+.boardBlackPartdown {
+    flex-direction: column-reverse;
+    background-image: url('../../../assets/images/BLACKDOWN.svg');
+}
+.boardRedPartup {
+    flex-direction: column;
+    background-image: url('../../../assets/images/REDUP.svg');
+}
+.boardBlackPartup {
+    flex-direction: column;
+    background-image: url('../../../assets/images/BLACKUP.svg');
+}
+
+
+.piece{
+    width: 100%;
+    height: 19%;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+}
+.black{
+    background-image: url('../../../assets/images/BlackPeice.svg');
+}
+.white{
+    background-image: url('../../../assets/images/WhitePeice.svg');
+}
+.none{
+    height: 0%;
+    width: 0%;
+}
+
+.none-selected{
+    border: solid white 2px;
+}
+
+.piece:hover{
+    cursor: grab;
+}
+.piece:active{
+    cursor: grabbing;
+}

@@ -18,7 +18,6 @@ namespace TalkBack.UI.Hubs
             this.userService = userService;
         }
 
-
         public async Task UpdateBoard(Chat chat, string pieceId, string currentPlaceId, string nextPlaceId)
         {
             var lst = new string[] { pieceId, currentPlaceId, nextPlaceId };
@@ -28,12 +27,66 @@ namespace TalkBack.UI.Hubs
         public async Task RollDice(Chat chat)
         {
             var rnd = new Random();
-            await Clients.Group(chat.ChatId.ToString()).SendAsync("GetDice", rnd.Next(1,7), rnd.Next(1, 7));
+            await Clients.Group(chat.ChatId.ToString()).SendAsync("GetDice", rnd.Next(1, 7), rnd.Next(1, 7));
+        }
+
+        public async Task NextTurn(Chat chat, string color)
+        {
+            if (color == "white")
+                await Clients.Group(chat.ChatId.ToString()).SendAsync("Turn", "black");
+            else
+                await Clients.Group(chat.ChatId.ToString()).SendAsync("Turn", "white");
+        }
+
+        public async Task EndGame(Chat chat)
+        {
+            if (chat == null) return;
+
+            var currentUser = userService.GetUsers().Find(x => x.ConnectionId == Context.ConnectionId);
+            var tmp = chat.Users.First(x => x != currentUser.Username);
+            var otherUser = userService.GetUsers().Find(x => x.Username == tmp);
+
+            currentUser.PlayWith = null;
+            otherUser.PlayWith = null;
+            userService.UpdateUser(currentUser);
+            userService.UpdateUser(otherUser);
+            await Clients.Group(otherUser.ConnectionId).SendAsync("EndGame");
+            await Clients.Group(currentUser.ConnectionId).SendAsync("EndGame");
+        }
+
+        public async Task WantToPlayWith(Chat chat)
+        {
+            var currentUser = userService.GetUsers().Find(x => x.ConnectionId == Context.ConnectionId);
+            var tmp = chat.Users.First(x => x != currentUser.Username);
+            var otherUser = userService.GetUsers().Find(x => x.Username == tmp);
+
+            currentUser.PlayWith = otherUser.Username;
+            userService.UpdateUser(currentUser);
+            await CheckIfCanPlay(currentUser, otherUser, chat);
+        }
+
+        public async Task CheckIfCanPlay(User currentUser, User otherUser, Chat chat)
+        {
+            if (!(currentUser.PlayWith == otherUser.Username && otherUser.PlayWith == currentUser.Username)) return;
+
+            await Groups.AddToGroupAsync(currentUser.ConnectionId, chat.ChatId.ToString());
+            await Groups.AddToGroupAsync(otherUser.ConnectionId, chat.ChatId.ToString());
+
+            await Clients.Group(chat.ChatId.ToString()).SendAsync("CanPlay");
+            await StartGame(currentUser, otherUser, chat);
+        }
+
+        public async Task StartGame(User currentUser, User otherUser, Chat chat)
+        {
+            await Clients.Group(currentUser.ConnectionId).SendAsync("GetColor", "white");
+            await Clients.Group(otherUser.ConnectionId).SendAsync("GetColor", "black");
+
+            await Clients.Group(chat.ChatId.ToString()).SendAsync("Turn", "white");
         }
 
         public async Task GetChat(string currentUser, string otherUser)
         {
-            if(currentUser != null && otherUser != null)
+            if (currentUser != null && otherUser != null)
             {
                 var chat = chatService.GetChat(currentUser, otherUser);
                 await Groups.AddToGroupAsync(Context.ConnectionId, chat.ChatId.ToString());
@@ -99,7 +152,7 @@ namespace TalkBack.UI.Hubs
             return base.OnDisconnectedAsync(exception);
         }
 
-        public async Task Disconnect(string connectionId ,string room)
+        public async Task Disconnect(string connectionId, string room)
         {
             await Groups.RemoveFromGroupAsync(connectionId, room);
         }

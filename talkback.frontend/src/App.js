@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import Connect from './components/Connect'
 import Login from './components/LoginHub/Login';
 import Lobby from './components/LobbyHub/Lobby'
-import CreatBoard, { MakeBoard } from './components/LobbyHub/GameContainer/GameBoard/Board';
+import CreatBoard, { MakeBoard } from './components/LobbyHub/GameContainer/Board';
 import UpdateGame from './components/LobbyHub/GameContainer/UpdateGame';
 
 const App = () =>{
@@ -15,22 +15,20 @@ const App = () =>{
   const [users, setUsers] = useState();
   const [chat, setChat] = useState();
 
-  const [dices, setDices] = useState();
-  const midRef = useRef();
+  const [dices, setDices] = useState([100,6,100,3]);
   const [board, setBoard] = useState();
   const [move, setMove] = useState();
+  const [color, setColor] = useState();
+  const [turn, setTurn] = useState();
 
   useEffect(async() => {
-    await Connect(setMove, setDices, setConnection, setCurrentUser, setUsers, setChat);
+    await Connect(setTurn, setBoard, setColor, setMove, setDices, setConnection, setCurrentUser, setUsers, setChat);
     await MakeBoard();
-    await setBoard(CreatBoard(midRef));
   }, [])
 
   useEffect(() => {
-    if(move) {
-      UpdateGame(move, midRef);
-      setBoard(null);
-      setBoard(CreatBoard(midRef));
+    if(move && dices) {
+      UpdateGame(move, dices, setDices);
     }
   }, [move])
 
@@ -40,7 +38,7 @@ const App = () =>{
       <hr className='line'/>
       { !(currentUser && users)
           ? <div className='game-grid'><Login  connection={connection}/></div>
-          : <Lobby board={board} chat={chat} connection={connection} currentUser={currentUser} users={users}/>
+          : <Lobby setBoard={setBoard} setDices={setDices} dices={dices} board={board} chat={chat} connection={connection} currentUser={currentUser} users={users}/>
       }
       </div>
   </div>

@@ -1,27 +1,22 @@
 import './Lobby.css'
 import UsersContainer from "./UsersContainer/UsersContainer";
-import GameBoard from './GameContainer/GameBoard/GameBoard';
+import GameLogic from './GameContainer/GameLogic';
+import ChatContainer from './ChatContainer/ChatContainer';
 
-const Lobby = ({board, chat, connection, currentUser, users }) => {
-
-    const onClick = () => {
-        const myBoard = <GameBoard connection={connection} chat={chat}/>
-        connection.invoke('UpdateBoard', chat, myBoard);
-    }
-
-    const sendMessage = async (message) => {
-        await connection.invoke("SendMessage", chat, message);
-    }
-
+const Lobby = ({setBoard, setDices, dices, board, chat, connection, currentUser, users }) => {
     async function userClicked (otherUser){
         await connection.invoke("GetChat", currentUser.username, otherUser.username);
+        await connection.invoke("EndGame", chat);
     };
 
     return <div className='lobby'>
         {/* <button onClick = {() => onClick()}>Game</button> */}
         <UsersContainer userClicked={userClicked} users={users} currentUser={currentUser} connection={connection}/>
         {chat
-            ? <GameBoard board ={board} connection={connection} chat={chat}></GameBoard>
+            ?<div className='game'>
+                <GameLogic setDices={setDices} dices={dices} board ={board} connection={connection} chat={chat}></GameLogic>
+                <ChatContainer connection={connection} currentUser={currentUser} chat={chat}></ChatContainer>
+            </div> 
             : <h4 className='lobby-wating'>Select a friend to chat with</h4>
         }
     </div>

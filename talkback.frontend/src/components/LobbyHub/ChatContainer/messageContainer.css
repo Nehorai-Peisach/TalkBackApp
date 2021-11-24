@@ -1,6 +1,6 @@
 .message-container {
     height: 75vh;
-    width: 100vh;
+    width: 40vh;
     background-color: #E5DDD5;
     overflow: auto;
     padding: 10px;
@@ -9,8 +9,8 @@
 .message {
     display:inline-block;
     word-break: break-word;
-   white-space: pre-wrap;
-   -moz-white-space: pre-wrap;
+    white-space: pre-wrap;
+    -moz-white-space: pre-wrap;
     padding: 5px 15px;
     border-radius: 20px;
     margin: 1px 0px;

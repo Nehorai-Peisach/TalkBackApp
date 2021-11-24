@@ -1,25 +1,40 @@
-const UpdateGame = (move, midRef) => {
+const UpdateGame = (move, dices, setDices) => {
 
     //Initialize
-    debugger
     const piece = document.getElementById(move[0]);
     const currentPlace = document.getElementById(move[1]);
-    const nextPlace = document.getElementById(move[2]);
+    const nextPlace = document.getElementById('T'+move[2].match(/\d+/));
+    const midPart = document.getElementById('MidPart');
 
     //Checks
-    if(nextPlace.children.length === 0){
+    //movment side
+    const currentId = parseInt(currentPlace.id.match(/\d+/));
+    const nextId = parseInt(nextPlace.id.match(/\d+/));
+    debugger
+    if(piece.className == 'black piece'){
+        if(nextId - currentId === dices[1]) dices[0]--;
+        if(nextId - currentId === dices[3]) dices[2]--;
+
+    }
+    if(piece.className == 'white piece'){
+        if(currentId - nextId === dices[1]) dices[0]--;
+        if(currentId - nextId === dices[3]) dices[2]--;
+    }
+    setDices(dices);
+
+    //go to empty
+    if(nextPlace.children.length === 1){
         nextPlace.appendChild(piece);
         return;
     }
-
-    if(piece.className === nextPlace.children[0].className){
+    //go to the same color
+    if(piece.className === nextPlace.children[1].className){
         nextPlace.appendChild(piece);
         return;
     }
-
-    const otherPiece = nextPlace.children[0];
-    if(midRef.current && nextPlace.children.length === 1){
-        midRef.current.appendChild(otherPiece);
+    //eat 1 in the other color
+    if(nextPlace.children.length === 2){
+        midPart.appendChild(nextPlace.children[1]);
         nextPlace.appendChild(piece);
     }
 }

@@ -1,6 +1,6 @@
 .bar{
     height: auto;
-    width: auto;
+    width: 40vh;
     background-color: #F0F0F0;
     display: box;
 }
@@ -20,7 +20,7 @@
 .message-input{
     background-color: white;
     height: 4vh;
-    width: 65vh;
+    width: 25vh;
     margin: 0px;
     padding: 15px;
     border-radius: 50px;

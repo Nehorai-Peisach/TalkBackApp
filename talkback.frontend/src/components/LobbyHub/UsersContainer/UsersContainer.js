@@ -1,5 +1,5 @@
 import './usersContainer.css';
-const UsersContainer = ({ userClicked, users ,currentUser, connection }) => {
+const UsersContainer = ({ userClicked, users ,currentUser }) => {
 
 
     return <div className='user-list'>
@@ -10,7 +10,7 @@ const UsersContainer = ({ userClicked, users ,currentUser, connection }) => {
             {u.username!==currentUser.username
                 && u.connectionId
                     && <div className='user'>
-                        <div className='circle-on'/>
+                        <div className='circle on'/>
                         <div className='online-user' key={'on'+index} onClick={()=> userClicked(u)}>{u.username}</div>
                     </div>
             } </div>
@@ -21,7 +21,7 @@ const UsersContainer = ({ userClicked, users ,currentUser, connection }) => {
             {u.username!==currentUser.username
                 && !u.connectionId
                     && <div className='user'>
-                        <div className='circle-off'/>
+                        <div className='circle off'/>
                         <div className='offline-user' key={'off'+index}>{u.username}</div>
                     </div>
             } </div>

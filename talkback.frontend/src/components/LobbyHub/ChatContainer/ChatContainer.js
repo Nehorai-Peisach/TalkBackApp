@@ -3,10 +3,10 @@ import MessagesContainer from "./MessageContainer";
 import SendMessageForm from "./SendMessageForm";
 
 
-const ChatContainer =({ currentUser, chat, sendMessage, }) => 
+const ChatContainer =({ connection, currentUser, chat }) =>
     <div className='chatContainer'>
-    <MessagesContainer currentUser={currentUser} messages={chat.messages}/>
-    <SendMessageForm sendMessage={sendMessage}/>
+        <MessagesContainer currentUser={currentUser} messages={chat.messages}/>
+        <SendMessageForm connection={connection} chat={chat}/>
     </div>
 
     export default ChatContainer;

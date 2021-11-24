@@ -1,18 +1,9 @@
-
-  
-.lobby-wating{
-    display: inline-flex;
-    background-color: #F0F0F0;
-    align-items: center;
-    text-align: center;
-    height: 55vh;
-    width: 80vh;
-}
 .lobby{
     display: flex;
     background-color: #F0F0F0;
     align-items: center;
     text-align: center;
-    height: 80vh;
-    width: 100%;
+}
+.game{
+    display: flex;
 }
