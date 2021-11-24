@@ -42,10 +42,14 @@ export const MakeBoard = () =>{
     }
 }
 
-const CreatBoard = () => {
+const CreatBoard = (dices) => {
     return <div className='board'>
         <div className='outline1'/>
         <div className='outline2'/>
+        <div className={'dices'}>
+            <div className={'dice dice'+dices[1]}/>
+            <div className={'dice dice'+dices[3]}/>
+        </div>
         <div className='topleft'>
             {Triangles[12]}
             {Triangles[11]}

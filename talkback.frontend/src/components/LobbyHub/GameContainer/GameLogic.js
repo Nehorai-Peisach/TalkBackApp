@@ -20,17 +20,33 @@ const GameLogic = ({ dices, board, connection, chat }) => {
         if((element.classList.contains("white") || element.classList.contains("black"))){
             element.style.zIndex = '2';
             element.style.border = 'solid #ffff 2px'
-    
+            
             setActivePiece(element);
+
         }   
     }
 
     useEffect(() => {
         resetColor();
-        if(!activePiece) return;
-
         let color = '';
+        if(!activePiece) return;
+        if(activePiece.parentElement.id === 'MidPart')
+        {
+            if(activePiece.classList.contains('black')){
+                color = 'black';
+                
+                if(dices[0] > 0)colorIt(dices[1], color);
+                if(dices[2] > 0)colorIt(dices[3], color);
+            }
+            if(activePiece.classList.contains('white')){
+                color = 'white';
+                if(dices[0] > 0)colorIt(25-dices[1], color);
+                if(dices[2] > 0)colorIt(25-dices[3], color);
+            }
+            return;
+        }
         const placeId = parseInt(activePiece.parentElement.id.match(/\d+/));
+        
         if(activePiece.classList.contains('black')){
             color = 'black';
             if(dices[0] > 0)colorIt(placeId+dices[1], color);
@@ -71,21 +87,7 @@ const GameLogic = ({ dices, board, connection, chat }) => {
         }
     }
 
-    const RollDice = () => {
-        debugger
-        connection.invoke('RollDice', chat);
-    }
-
     return <div className={'flex'} onClick={e => onClick(e)}>
-        <div>
-            <button onClick={() =>RollDice()}>Roll</button>
-            <div className={'flex'}>
-                <div>{dices[0]}</div>
-                <div className={'dice dice'+dices[1]}/>
-                <div>{dices[2]}</div>
-                <div className={'dice dice'+dices[3]}/>
-            </div>
-        </div>
         {board}
     </div>
 }

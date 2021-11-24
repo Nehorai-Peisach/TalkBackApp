@@ -15,20 +15,20 @@ const App = () =>{
   const [users, setUsers] = useState();
   const [chat, setChat] = useState();
 
-  const [dices, setDices] = useState([100,6,100,3]);
+  const [dices, setDices] = useState([2,1,2,1]);
   const [board, setBoard] = useState();
   const [move, setMove] = useState();
   const [color, setColor] = useState();
   const [turn, setTurn] = useState();
 
   useEffect(async() => {
-    await Connect(setTurn, setBoard, setColor, setMove, setDices, setConnection, setCurrentUser, setUsers, setChat);
+    await Connect(setTurn, setBoard, setColor, setMove, setDices, setConnection, setCurrentUser, setUsers, setChat, dices);
     await MakeBoard();
   }, [])
 
   useEffect(() => {
     if(move && dices) {
-      UpdateGame(move, dices, setDices);
+      UpdateGame(move, dices, setDices, connection, chat);
     }
   }, [move])
 
