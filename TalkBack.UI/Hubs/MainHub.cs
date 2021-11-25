@@ -78,8 +78,8 @@ namespace TalkBack.UI.Hubs
 
         public async Task StartGame(User currentUser, User otherUser, Chat chat)
         {
-            await Clients.Group(currentUser.ConnectionId).SendAsync("GetColor", "white");
-            await Clients.Group(otherUser.ConnectionId).SendAsync("GetColor", "black");
+            await Clients.Group(currentUser.Username).SendAsync("GetColor", "white");
+            await Clients.Group(otherUser.Username).SendAsync("GetColor", "black");
 
             await Clients.Group(chat.ChatId.ToString()).SendAsync("Turn", "white");
         }

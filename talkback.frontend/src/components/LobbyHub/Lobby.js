@@ -3,7 +3,7 @@ import UsersContainer from "./UsersContainer/UsersContainer";
 import GameLogic from './GameContainer/GameLogic';
 import ChatContainer from './ChatContainer/ChatContainer';
 
-const Lobby = ({setBoard, setDices, dices, board, chat, connection, currentUser, users }) => {
+const Lobby = ({turn, color, setDices, dices, board, chat, connection, currentUser, users }) => {
     async function userClicked (otherUser){
         await connection.invoke("GetChat", currentUser.username, otherUser.username);
         await connection.invoke("EndGame", chat);
@@ -14,8 +14,8 @@ const Lobby = ({setBoard, setDices, dices, board, chat, connection, currentUser,
         <UsersContainer userClicked={userClicked} users={users} currentUser={currentUser} connection={connection}/>
         {chat
             ?<div className='game'>
-                <GameLogic setDices={setDices} dices={dices} board ={board} connection={connection} chat={chat}></GameLogic>
-                <ChatContainer connection={connection} currentUser={currentUser} chat={chat}></ChatContainer>
+                <GameLogic currentUser={currentUser} turn={turn} color={color} setDices={setDices} dices={dices} board ={board} connection={connection} chat={chat}></GameLogic>
+                <ChatContainer board={board} connection={connection} currentUser={currentUser} chat={chat}></ChatContainer>
             </div> 
             : <h4 className='lobby-wating'>Select a friend to chat with</h4>
         }

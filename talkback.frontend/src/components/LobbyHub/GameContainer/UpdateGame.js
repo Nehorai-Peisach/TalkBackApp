@@ -1,4 +1,6 @@
-const UpdateGame = (move, dices, setDices, connection, chat) => {
+import { useEffect } from "react";
+
+const UpdateGame = (color, turn, move, dices, setDices, connection, chat) => {
 
     //Initialize
     const piece = document.getElementById(move[0]);
@@ -7,20 +9,26 @@ const UpdateGame = (move, dices, setDices, connection, chat) => {
     const midPart = document.getElementById('MidPart');
 
     //Checks
+    
     //movment side
     const currentId = parseInt(currentPlace.id.match(/\d+/));
     const nextId = parseInt(nextPlace.id.match(/\d+/));
-    if(piece.className == 'black piece'){
-        if(nextId - currentId === dices[1]) dices[0]--;
-        if(nextId - currentId === dices[3]) dices[2]--;
+    if(nextId === 'pieceOut'){
+        piece.className='none';
+        nextPlace.appendChild(piece);
+        return
+    }
+    if(piece.className === 'black piece'){
+        if(nextId - currentId === dices[1] && dices[0]>0) dices[0]--;
+        if(nextId - currentId === dices[3] && dices[2]>0) dices[2]--;
 
     }
-    if(piece.className == 'white piece'){
-        if(currentId - nextId === dices[1]) dices[0]--;
-        if(currentId - nextId === dices[3]) dices[2]--;
+    if(piece.className === 'white piece'){
+        if(currentId - nextId === dices[1] && dices[0]>0) dices[0]--;
+        if(currentId - nextId === dices[3] && dices[2]>0) dices[2]--;
     }
     setDices(dices);
-    checkDices(connection ,chat ,dices);
+    checkDices(connection, chat, dices, color, turn);
     
     //go to empty
     if(nextPlace.children.length === 1){
@@ -39,13 +47,14 @@ const UpdateGame = (move, dices, setDices, connection, chat) => {
     }
 }
 
-const checkDices = (connection, chat, dices) => {
-    debugger;
+const checkDices = (connection, chat, dices, color, turn) => {
     if(connection && dices && chat){
-        if(dices[0] === 0 && dices[2] ===0){
-          connection.invoke('RollDice', chat);
+        if(dices[0] === 0 && dices[2] === 0){
+            connection.invoke('RollDice', chat);
+            if(color===turn)
+                connection.invoke('NextTurn', chat ,color);
         }
-      }
+    }
 }
 
 export default UpdateGame;

@@ -14,6 +14,7 @@ const Login = ( { connection } )=>{
   const signUpClick= () => signUpButton.current.click(container.current.classList.add("right-panel-active"));
   
   const loginUser = async (username, password) =>{
+    debugger
     await connection.invoke("LoginUser", {username, password});
     await connection.invoke("LoadUsers");
 }

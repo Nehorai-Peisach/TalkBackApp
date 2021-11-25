@@ -1,7 +1,7 @@
 import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 import CreatBoard from "./LobbyHub/GameContainer/Board";
 
-const Connect = (setTurn, setBoard, setColor, setMove, setDices, setConnection, setCurrentUser, setUsers, setChat, dices) => {
+const Connect = (setTurn, setBoard, setColor, setMove, setDices, setConnection, setCurrentUser, setUsers, setChat) => {
     let connection = new HubConnectionBuilder()
     .withUrl('https://localhost:44322/main')
     .configureLogging(LogLevel.Information)
@@ -15,7 +15,7 @@ const Connect = (setTurn, setBoard, setColor, setMove, setDices, setConnection, 
         setTurn(turn);
     });
     connection.on("CanPlay", () =>{
-        setBoard(CreatBoard(dices));
+        setBoard(CreatBoard());
     });
     
     connection.on("GetColor", (color) =>{
@@ -30,6 +30,9 @@ const Connect = (setTurn, setBoard, setColor, setMove, setDices, setConnection, 
     connection.on("GetDice", (dice1, dice2) =>{
         if(dice1 === dice2) setDices([4, dice1, 4, dice2]);
         else setDices([1, dice1, 1, dice2]);
+
+        document.getElementById('firstDice').className = 'firstDice dice'+dice1;
+        document.getElementById('secondDice').className = 'secondDice dice'+dice2;
     });
 
     connection.on("IsLogined", (user) =>{

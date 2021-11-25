@@ -15,7 +15,7 @@ const App = () =>{
   const [users, setUsers] = useState();
   const [chat, setChat] = useState();
 
-  const [dices, setDices] = useState([2,1,2,1]);
+  const [dices, setDices] = useState([0,0,0,0]);
   const [board, setBoard] = useState();
   const [move, setMove] = useState();
   const [color, setColor] = useState();
@@ -28,9 +28,21 @@ const App = () =>{
 
   useEffect(() => {
     if(move && dices) {
-      UpdateGame(move, dices, setDices, connection, chat);
+      UpdateGame(color, turn,  move, dices, setDices, connection, chat);
     }
   }, [move])
+
+  useEffect(() => {
+    if(!turn || !color) return;
+    if(turn == color){
+        document.getElementById('myTurn').className = 'userInfo turn';
+        document.getElementById('otherTurn').className = 'userInfo';
+    }
+    else{
+        document.getElementById('myTurn').className = 'userInfo';
+        document.getElementById('otherTurn').className = 'userInfo turn';
+    }
+}, [turn])
 
   return <div id='app'>
     <div className='app'>
@@ -38,7 +50,7 @@ const App = () =>{
       <hr className='line'/>
       { !(currentUser && users)
           ? <div className='game-grid'><Login  connection={connection}/></div>
-          : <Lobby setBoard={setBoard} setDices={setDices} dices={dices} board={board} chat={chat} connection={connection} currentUser={currentUser} users={users}/>
+          : <Lobby turn={turn} color={color} setDices={setDices} dices={dices} board={board} chat={chat} connection={connection} currentUser={currentUser} users={users}/>
       }
       </div>
   </div>
