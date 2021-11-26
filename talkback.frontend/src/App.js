@@ -60,7 +60,7 @@ const App = () =>{
     if(mid.length > 0){
       for (let i = 0; i < mid.length; i++) {
         if(mid[i].classList.contains(color)){
-          if(color == 'blשck'){
+          if(color == 'black'){
             let place = document.getElementById('T'+dices[1]).children;
             if(!place[2]) return false;
             if(place[2].classList.contains(color)) return false;
