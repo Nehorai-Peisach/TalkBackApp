@@ -30,6 +30,11 @@ const App = () =>{
     if(move && dices) {
       UpdateGame(color, turn,  move, dices, setDices, connection, chat);
     }
+    if(checkIfCantMove()){
+      document.getElementById('cantMoveBtn').disabled = false;
+      document.getElementById('cantMoveBtn').className = '';
+    }
+    else document.getElementById('cantMoveBtn').className = 'cantMoveBtn';
   }, [move])
 
   useEffect(() => {
@@ -42,13 +47,11 @@ const App = () =>{
         document.getElementById('myTurn').className = 'userInfo';
         document.getElementById('otherTurn').className = 'userInfo turn';
     }
-
     if(checkIfCantMove()){
       document.getElementById('cantMoveBtn').disabled = false;
       document.getElementById('cantMoveBtn').className = '';
     }
     else document.getElementById('cantMoveBtn').className = 'cantMoveBtn';
-    
 }, [turn])
 
   const checkIfCantMove = () => {
