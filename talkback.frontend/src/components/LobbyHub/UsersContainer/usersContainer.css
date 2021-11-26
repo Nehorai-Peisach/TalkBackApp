@@ -24,6 +24,9 @@
 .off{
     background-color: gray;
 }
+.play{
+    background-color: cornflowerblue;
+}
 
 .user{
     display: flex;
@@ -31,4 +34,10 @@
 .user:hover{
     font-size: 20px;
     font-weight: bold;
+}
+
+.inChat{
+    background-color:gray;
+    padding: 0px 10%;
+    border-radius: 20px;
 }

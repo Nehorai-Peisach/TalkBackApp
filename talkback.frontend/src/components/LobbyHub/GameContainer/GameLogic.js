@@ -1,13 +1,18 @@
 import './GameLogic.css';
 import { useState, useEffect } from 'react'
 
-const GameLogic = ({currentUser, turn, color, dices, board, connection, chat }) => {
+const GameLogic = ({ currentUser, turn, color, dices, board, connection, chat }) => {
     const [activePiece, setActivePiece] = useState();
 
     const Update = (currentPlace, nextPlace) => {
         connection.invoke('UpdateBoard', chat, activePiece.id, currentPlace.id, nextPlace.id);
     }
 
+    const RollDice = () => {
+        debugger
+        connection.invoke('RollDice', chat);
+        connection.invoke('NextTurn', chat ,color);
+    }
     const onClick = (e) => {
         if(turn !== color) return;
         
@@ -18,25 +23,16 @@ const GameLogic = ({currentUser, turn, color, dices, board, connection, chat }) 
         }
         if(activePiece && activePiece !== element){
             activePiece.style.border = '';
+            document.getElementById('pieceOut').className = 'none';
             setActivePiece(null);
         }
-        if((element.className == color+' piece')){
+        if((element.className === color+' piece')){
             element.style.border = 'solid #ffff 2px'
             setActivePiece(element);
         }
     }
 
-    const PieceOut = (colorToChek, from, to) => {
-        if(color === colorToChek){
-            for (let i = from; i <= to; i++) {
-                let place = document.getElementById('T'+i);
-                for (let j = 0; j < place.children.length; j++) {
-                    if(place.children[j].classList.contains(color)) return;
-                }
-            }
-            document.getElementById('pieceOut').className = 'pieceOut';
-        }
-    }
+
 
     useEffect(() => {
         resetColor();
@@ -72,56 +68,33 @@ const GameLogic = ({currentUser, turn, color, dices, board, connection, chat }) 
         }
     }, [activePiece])
 
+
     const colorIt = (num, placeId) => {
-        debugger
         if(color === 'black' && num > 24){
-            if(dices[1] > (24-placeId)){
-                for (let i = 19; i < placeId; i++) {
-                    for (let j = 0; j < document.getElementById('T'+i).children.length; j++) {
-                        if(document.getElementById('T'+i).children[j].classList.contains(color)) return
-                    }
-                }
-            }
-            if(dices[3] > (24-placeId)){
-                for (let i = 19; i < placeId; i++) {
-                    for (let j = 0; j < document.getElementById('T'+i).children.length; j++) {
-                        if(document.getElementById('T'+i).children[j].classList.contains(color)) return
-                    }
-                }
-            }
+            if(!checkValid(1, (25-placeId), placeId)) return;
+            if(!checkValid(3, (25-placeId), placeId)) return;
             PieceOut('black', 1, 18);
+            return;
         }
         if(color === 'white' && num < 1){
-            if(dices[1] > placeId){
-                for (let i = 6; i > placeId; i--) {
-                    for (let j = 0; j < document.getElementById('T'+i).children.length; j++) {
-                        if(document.getElementById('T'+i).children[j].classList.contains(color)) return
-                    }
-                }
-            }
-            if(dices[3] > placeId){
-                for (let i = 6; i > placeId; i--) {
-                    for (let j = 0; j < document.getElementById('T'+i).children.length; j++) {
-                        if(document.getElementById('T'+i).children[j].classList.contains(color)) return
-                    }
-                }
-            }
+            if(!checkValid(1, placeId, placeId)) return;
+            if(!checkValid(3, placeId, placeId)) return;
             PieceOut('white', 7, 24 );
+            return;
         }
-        else{
-            const lst = document.getElementById('T'+num).children;
-            let otherColor;
-            let count = 0;
-            if(lst){
-                for (let i = lst.length-1; i > -1; i--) {
-                    if(lst[i].id.match('N')){
-                        if(!otherColor || otherColor.includes(color) || count<2)
-                            lst[i].className = 'piece none-selected';
-                    }
-                    else{
-                        otherColor = lst[i].className;
-                        count++;
-                    }
+
+        const lst = document.getElementById('T'+num).children;
+        let otherColor;
+        let count = 0;
+        if(lst){
+            for (let i = lst.length-1; i > -1; i--) {
+                if(lst[i].id.match('N')){
+                    if(!otherColor || otherColor.includes(color) || count<2)
+                        lst[i].className = 'piece none-selected';
+                }
+                else{
+                    otherColor = lst[i].className;
+                    count++;
                 }
             }
         }
@@ -135,21 +108,49 @@ const GameLogic = ({currentUser, turn, color, dices, board, connection, chat }) 
         }
     }
 
-    return <div className='gameHub' onClick={e => onClick(e)}>
-        <div>
-            <div className='users'>
-                <div className={'topPiece '+color}/>
-                <div id={'myTurn'} className='userInfo'>You</div>
-                <div/>
-                <div id={'otherTurn'} className='userInfo'>{(chat.users[0]==currentUser.username)?chat.users[1]:chat.users[0]}</div>
-                <div className={'topPiece '+ (color == 'white'?'black':'white')}/>
-            </div>
-            {board}
+    const checkValid = (diceNum, placeNum, placeId ) => {
+        if(dices[diceNum] > placeNum && dices[diceNum-1]>0){
+            for (let i = 19; i < placeId; i++) {
+                for (let j = 0; j < document.getElementById('T'+i).children.length; j++) {
+                    if(document.getElementById('T'+i).children[j].classList.contains(color)) return false;
+                    if(j>2) break;
+                }
+            }
+        }
+        return true;
+    }
+
+    const PieceOut = (colorToChek, from, to) => {
+        if(color === colorToChek){
+            for (let i = from; i <= to; i++) {
+                let place = document.getElementById('T'+i);
+                for (let j = 0; j < place.children.length; j++) {
+                    if(place.children[j].classList.contains(color)) return;
+                }
+            }
+            document.getElementById('pieceOut').className = 'pieceOut';
+        }
+    }
+
+    return <div>{
+        !board
+            ?null
+            :<div className='gameHub' onClick={e => onClick(e)}>
+                <div>
+                    <div className='users'>
+                        <div className={'topPiece '+color}/>
+                        <div id={'myTurn'} className='userInfo'>You</div>
+                        <button id='cantMoveBtn' className='cantMoveBtn' onClick={() => RollDice()}>You Can't Move Roll Dice Now!</button>
+                        <div id={'otherTurn'} className='userInfo'>{(chat.users[0]==currentUser.username)?chat.users[1]:chat.users[0]}</div>
+                        <div className={'topPiece '+ (color == 'white'?'black':'white')}/>
+                    </div>
+                    {board}
+                </div>
+                <div className='pieceOutArea'>
+                        <div id={'pieceOut'} className='none'/>
+                </div>
         </div>
-        <div className='pieceOutArea'>
-            <div id={'pieceOut'} className='none'>Drop Here Pieces</div>
-        </div>
-    </div>
+    }</div>
 }
 
 export default GameLogic;

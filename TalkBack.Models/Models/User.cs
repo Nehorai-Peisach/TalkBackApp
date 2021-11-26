@@ -11,5 +11,6 @@ namespace TalkBack.DAL.Models
         public string Password { get; set; }
         public string ConnectionId { get; set; }
         public string PlayWith { get; set; }
+        public Chat CurrentChat { get; set; }
     }
 }

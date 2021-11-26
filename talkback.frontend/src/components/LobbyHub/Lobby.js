@@ -3,10 +3,10 @@ import UsersContainer from "./UsersContainer/UsersContainer";
 import GameLogic from './GameContainer/GameLogic';
 import ChatContainer from './ChatContainer/ChatContainer';
 
-const Lobby = ({turn, color, setDices, dices, board, chat, connection, currentUser, users }) => {
+const Lobby = ({ turn, color, setDices, dices, board, chat, connection, currentUser, users }) => {
     async function userClicked (otherUser){
-        await connection.invoke("GetChat", currentUser.username, otherUser.username);
         await connection.invoke("EndGame", chat);
+        await connection.invoke("GetChat", currentUser.username, otherUser.username);
     };
 
     return <div className='lobby'>

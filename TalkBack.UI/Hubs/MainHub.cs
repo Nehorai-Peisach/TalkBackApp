@@ -45,13 +45,19 @@ namespace TalkBack.UI.Hubs
             var currentUser = userService.GetUsers().Find(x => x.ConnectionId == Context.ConnectionId);
             var tmp = chat.Users.First(x => x != currentUser.Username);
             var otherUser = userService.GetUsers().Find(x => x.Username == tmp);
-
-            currentUser.PlayWith = null;
-            otherUser.PlayWith = null;
-            userService.UpdateUser(currentUser);
-            userService.UpdateUser(otherUser);
-            await Clients.Group(otherUser.ConnectionId).SendAsync("EndGame");
-            await Clients.Group(currentUser.ConnectionId).SendAsync("EndGame");
+            
+            
+            if(currentUser.PlayWith!= null && currentUser.PlayWith == otherUser.Username && otherUser.PlayWith == currentUser.Username)
+            {
+                await SendMessage(chat, $"{currentUser.Username} was left the game.");
+                currentUser.PlayWith = null;
+                otherUser.PlayWith = null;
+                userService.UpdateUser(currentUser);
+                userService.UpdateUser(otherUser);
+                await Clients.Group(otherUser.Username).SendAsync("EndGame");
+                await Clients.Group(currentUser.Username).SendAsync("EndGame");
+            }
+            
         }
 
         public async Task WantToPlayWith(Chat chat)
@@ -60,9 +66,13 @@ namespace TalkBack.UI.Hubs
             var tmp = chat.Users.First(x => x != currentUser.Username);
             var otherUser = userService.GetUsers().Find(x => x.Username == tmp);
 
+            if(currentUser.PlayWith != null)
+            await Clients.Group(currentUser.PlayWith).SendAsync("WantToPlayWithYou", currentUser.Username, false);
+
             currentUser.PlayWith = otherUser.Username;
             userService.UpdateUser(currentUser);
             await CheckIfCanPlay(currentUser, otherUser, chat);
+            await Clients.Group(currentUser.PlayWith).SendAsync("WantToPlayWithYou", currentUser.Username, true);
         }
 
         public async Task CheckIfCanPlay(User currentUser, User otherUser, Chat chat)
@@ -88,7 +98,15 @@ namespace TalkBack.UI.Hubs
         {
             if (currentUser != null && otherUser != null)
             {
+                var other = userService.GetUsers().FirstOrDefault(x => x.Username == otherUser);
+                var current = userService.GetUsers().FirstOrDefault(x => x.Username == currentUser);
+
                 var chat = chatService.GetChat(currentUser, otherUser);
+                if(current.CurrentChat != null)
+                    await Disconnect(current.ConnectionId, current.CurrentChat.ChatId.ToString());
+                current.CurrentChat = chat;
+                userService.UpdateUser(current);
+                
                 await Groups.AddToGroupAsync(Context.ConnectionId, chat.ChatId.ToString());
                 await Clients.Group(chat.ChatId.ToString()).SendAsync("GetChat", chat);
             }
@@ -117,10 +135,18 @@ namespace TalkBack.UI.Hubs
             var output = userService.Login(Context.ConnectionId, user.Username, user.Password);
             if (output != null)
             {
-                output.ConnectionId = Context.ConnectionId;
-                userService.UpdateUser(output);
-                await Groups.AddToGroupAsync(output.ConnectionId, output.Username);
-                await Clients.Group(output.Username).SendAsync("IsLogined", output);
+                if(output.ConnectionId != null)
+                {
+                    await Groups.AddToGroupAsync(Context.ConnectionId, Context.ConnectionId);
+                    await Clients.Group(Context.ConnectionId).SendAsync("IsLogined", null);
+                }
+                else
+                {
+                    output.ConnectionId = Context.ConnectionId;
+                    userService.UpdateUser(output);
+                    await Groups.AddToGroupAsync(output.ConnectionId, output.Username);
+                    await Clients.Group(output.Username).SendAsync("IsLogined", output);
+                }
             }
         }
 
@@ -144,8 +170,11 @@ namespace TalkBack.UI.Hubs
                 .Find(x => x.ConnectionId == Context.ConnectionId);
             if (user != null)
             {
+                EndGame(user.CurrentChat);
                 Disconnect(user.ConnectionId, user.Username);
                 user.ConnectionId = default;
+                user.PlayWith = default;
+                user.CurrentChat = default;
                 userService.UpdateUser(user);
             }
             LoadUsers();

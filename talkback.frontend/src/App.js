@@ -42,7 +42,74 @@ const App = () =>{
         document.getElementById('myTurn').className = 'userInfo';
         document.getElementById('otherTurn').className = 'userInfo turn';
     }
+
+    if(checkIfCantMove()){
+      document.getElementById('cantMoveBtn').disabled = false;
+      document.getElementById('cantMoveBtn').className = '';
+    }
+    else document.getElementById('cantMoveBtn').className = 'cantMoveBtn';
+    
 }, [turn])
+
+  const checkIfCantMove = () => {
+    debugger
+    if(!color || !turn) return false;
+    if(color !== turn) return false;
+
+    let mid = document.getElementById('MidPart').children;
+    if(mid.length > 0){
+      for (let i = 0; i < mid.length; i++) {
+        if(mid[i].classList.contains(color)){
+          if(color == 'blשck'){
+            let place = document.getElementById('T'+dices[1]).children;
+            if(!place[2]) return false;
+            if(place[2].classList.contains(color)) return false;
+            place = document.getElementById('T'+dices[3]).children;
+            if(!place[2]) return false;
+            if(place[2].classList.contains(color)) return false;
+          }
+          if(color == 'white'){
+            let place = document.getElementById('T'+(25 - dices[1])).children;
+            if(!place[2]) return false;
+            if(place[2].classList.contains(color)) return false;
+            place = document.getElementById('T'+(25 - dices[3])).children;
+            if(!place[2]) return false;
+            if(place[2].classList.contains(color)) return false;
+          }
+          return true;
+        }        
+      }
+    }
+    for (let i = 1; i <= 24; i++) {
+      let triangle = document.getElementById('T'+i);
+      if(!triangle.children[1]) continue;
+
+      if(triangle.children[1].classList.contains(color)){
+        if(chackNextMoveValid(i,1)) return false;
+        if(chackNextMoveValid(i,3)) return false;
+      }
+      else continue;
+    }
+    return true;
+  }
+
+  const chackNextMoveValid = (placeNum, diceNum) => {
+    let num = 0;
+    if(color === 'white'){
+      num = placeNum - dices[diceNum];
+      if(num < 1) return true;
+    }
+    if(color === 'black'){
+      num = placeNum + dices[diceNum];
+      if(num > 24) return true;
+    }
+    let nextPlace = document.getElementById('T'+num);
+    if(nextPlace){
+      if(!nextPlace.children[2]) return true;
+      if(nextPlace.children[2].classList.contains(color)) return true;
+    }
+    return false;
+  }
 
   return <div id='app'>
     <div className='app'>

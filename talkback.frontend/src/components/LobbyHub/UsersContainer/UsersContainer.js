@@ -10,8 +10,8 @@ const UsersContainer = ({ userClicked, users ,currentUser }) => {
             {u.username!==currentUser.username
                 && u.connectionId
                     && <div className='user'>
-                        <div className='circle on'/>
-                        <div className='online-user' key={'on'+index} onClick={()=> userClicked(u)}>{u.username}</div>
+                        <div id={'C'+u.username} className='circle on'/>
+                        <div className='online-user' id={u.username} onClick={()=> userClicked(u)}>{u.username}</div>
                     </div>
             } </div>
         )}
@@ -22,7 +22,7 @@ const UsersContainer = ({ userClicked, users ,currentUser }) => {
                 && !u.connectionId
                     && <div className='user'>
                         <div className='circle off'/>
-                        <div className='offline-user' key={'off'+index}>{u.username}</div>
+                        <div className='offline-user' id={u.username}>{u.username}</div>
                     </div>
             } </div>
         )}

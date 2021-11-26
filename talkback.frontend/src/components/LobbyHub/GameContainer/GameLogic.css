@@ -3,7 +3,7 @@ div{
 }
 
 .gameHub{
-    width: 90vh;
+    width: 85vh;
     display: grid;
     grid-template-columns: 8fr 1fr;
 }
@@ -32,7 +32,7 @@ div{
     background-color:rgb(179, 122, 81);
     /* grid-row: 1;
     grid-column: 1; */
-    height: 80vh;
+    height: 73vh;
     display: grid;
     grid-template-rows: 0.5fr 10fr 3fr 10fr 0.5fr;
     grid-template-columns: 0.5fr 12fr 0.2fr 1.1fr 1.1fr 0.2fr 12fr 0.5fr;
@@ -179,5 +179,12 @@ div{
     align-items: center;
     font-size: 25px;
     font-weight: bold;
+}
+
+.cantMoveBtn{
+    background:transparent;
+    border: transparent;
+    color: transparent;
+    pointer-events: none;
 }
 

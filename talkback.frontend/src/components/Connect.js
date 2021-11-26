@@ -8,7 +8,16 @@ const Connect = (setTurn, setBoard, setColor, setMove, setDices, setConnection, 
     .build();
     
     connection.on("EndGame", () =>{
+        debugger
         setBoard(null);
+    });
+    connection.on("WantToPlayWithYou", (otherUser, flag) =>{
+        let circle = document.getElementById('C'+otherUser);
+        let other = document.getElementById(otherUser);
+
+        if(flag) circle.className = 'circle play';
+        else if(other.classList.contains('online-user')) circle.className = 'circle on';
+        else circle.className = 'circle off';
     });
 
     connection.on("Turn", (turn) =>{
@@ -28,7 +37,7 @@ const Connect = (setTurn, setBoard, setColor, setMove, setDices, setConnection, 
     });
 
     connection.on("GetDice", (dice1, dice2) =>{
-        if(dice1 === dice2) setDices([4, dice1, 4, dice2]);
+        if(dice1 === dice2) setDices([2, dice1, 2, dice2]);
         else setDices([1, dice1, 1, dice2]);
 
         document.getElementById('firstDice').className = 'firstDice dice'+dice1;
@@ -37,7 +46,7 @@ const Connect = (setTurn, setBoard, setColor, setMove, setDices, setConnection, 
 
     connection.on("IsLogined", (user) =>{
         !user 
-            ? console.log('Cant find user!')
+            ? console.log('Cant login to that user!')
             : setCurrentUser(user);
     });
     
@@ -54,9 +63,7 @@ const Connect = (setTurn, setBoard, setColor, setMove, setDices, setConnection, 
     });
 
     connection.on("GetChat", (chat) =>{
-        !chat
-            ? console.log('Cant find chat!')
-            : setChat(chat);
+        setChat(chat);
     });
 
     connection.on("SendMessage", (flag) =>{

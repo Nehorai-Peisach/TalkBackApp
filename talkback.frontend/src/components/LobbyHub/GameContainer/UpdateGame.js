@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 const UpdateGame = (color, turn, move, dices, setDices, connection, chat) => {
 
     //Initialize
@@ -9,26 +7,57 @@ const UpdateGame = (color, turn, move, dices, setDices, connection, chat) => {
     const midPart = document.getElementById('MidPart');
 
     //Checks
-    
-    //movment side
     const currentId = parseInt(currentPlace.id.match(/\d+/));
-    const nextId = parseInt(nextPlace.id.match(/\d+/));
-    if(nextId === 'pieceOut'){
-        piece.className='none';
-        nextPlace.appendChild(piece);
+
+    if(move[2] === 'pieceOut'){
+        document.getElementById('pieceOut').appendChild(piece);
+        debugger
+        if(piece.className === 'black piece'){
+            if(dices[1] === 25 - currentId && dices[0]>0) dices[0]--;
+            else if(dices[3] > 25 - currentId && dices[2]>0) dices[2]--;
+            else if(dices[3] === 25 - currentId && dices[2]>0) dices[2]--;
+            else if(dices[1] > 25 - currentId && dices[0]>0) dices[0]--;
+            piece.className='none';
+        }
+        if(piece.className === 'white piece'){
+            if(dices[1] === currentId && dices[0]>0) dices[0]--;
+            else if(dices[3] > currentId && dices[2]>0) dices[2]--;
+            else if(dices[3] === currentId && dices[2]>0) dices[2]--;
+            else if(dices[1] > currentId && dices[0]>0) dices[0]--;
+            piece.className='none';
+        }
+        setDices(dices);
+        checkDices(connection, chat, dices, color, turn);
         return
     }
-    if(piece.className === 'black piece'){
-        if(nextId - currentId === dices[1] && dices[0]>0) dices[0]--;
-        if(nextId - currentId === dices[3] && dices[2]>0) dices[2]--;
 
+    const nextId = parseInt(nextPlace.id.match(/\d+/));
+    if(move[1] === 'MidPart'){
+        if(piece.classList.contains('black')){
+            if(nextId === dices[1] && dices[0]>0) dices[0]--;
+            else if(nextId === dices[3] && dices[2]>0) dices[2]--;
+    
+        }
+        if(piece.classList.contains('white')){
+            if(25 - nextId === dices[1] && dices[0]>0) dices[0]--;
+            else if(25 - nextId === dices[3] && dices[2]>0) dices[2]--;
+        }
+        setDices(dices);
+        checkDices(connection, chat, dices, color, turn);
     }
-    if(piece.className === 'white piece'){
-        if(currentId - nextId === dices[1] && dices[0]>0) dices[0]--;
-        if(currentId - nextId === dices[3] && dices[2]>0) dices[2]--;
+    else{
+        if(piece.className === 'black piece'){
+            if(nextId - currentId === dices[1] && dices[0]>0) dices[0]--;
+            else if(nextId - currentId === dices[3] && dices[2]>0) dices[2]--;
+    
+        }
+        if(piece.className === 'white piece'){
+            if(currentId - nextId === dices[1] && dices[0]>0) dices[0]--;
+            else if(currentId - nextId === dices[3] && dices[2]>0) dices[2]--;
+        }
+        setDices(dices);
+        checkDices(connection, chat, dices, color, turn);
     }
-    setDices(dices);
-    checkDices(connection, chat, dices, color, turn);
     
     //go to empty
     if(nextPlace.children.length === 1){
