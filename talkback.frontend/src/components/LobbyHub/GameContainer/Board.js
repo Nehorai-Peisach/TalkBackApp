@@ -23,6 +23,7 @@ export const MakeBoard = () =>{
             case 17: input= [b[7], b[8], b[9]];break;
             case 19: input= [b[10], b[11], b[12], b[13], b[14]];break;
             case 24: input= [w[0], w[1]];break;
+            default: break;
         }
         
         if(index < 13){

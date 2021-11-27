@@ -1,7 +1,8 @@
 import './GameLogic.css';
 import { useState, useEffect } from 'react'
+import UpdateGame from './UpdateGame'
 
-const GameLogic = ({ currentUser, turn, color, dices, board, connection, chat }) => {
+const GameLogic = ({ move, currentUser, turn, color, setDices, dices, board, connection, chat }) => {
     const [activePiece, setActivePiece] = useState();
 
     const Update = (currentPlace, nextPlace) => {
@@ -17,7 +18,6 @@ const GameLogic = ({ currentUser, turn, color, dices, board, connection, chat })
         if(turn !== color) return;
         
         const element = e.target;
-        console.log(element.id);
         if(activePiece && (element.classList.contains('none-selected') || element.id === 'pieceOut')){
             Update(activePiece.parentElement, element);
         }
@@ -40,12 +40,12 @@ const GameLogic = ({ currentUser, turn, color, dices, board, connection, chat })
         if(activePiece.parentElement.id === 'MidPart')
         {
             if(color === 'black'){
-                if(dices[0] > 0)colorIt(dices[1], color);
-                if(dices[2] > 0)colorIt(dices[3], color);
+                if(dices[0] > 0)colorIt(dices[1]);
+                if(dices[2] > 0)colorIt(dices[3]);
             }
             if(color === 'white'){
-                if(dices[0] > 0)colorIt(25-dices[1], color);
-                if(dices[2] > 0)colorIt(25-dices[3], color);
+                if(dices[0] > 0)colorIt(25-dices[1]);
+                if(dices[2] > 0)colorIt(25-dices[3]);
             }
             return;
         }
@@ -58,7 +58,6 @@ const GameLogic = ({ currentUser, turn, color, dices, board, connection, chat })
 
         const placeId = parseInt(activePiece.parentElement.id.match(/\d+/));
         if(color === 'black'){
-
             if(dices[0] > 0)colorIt(placeId+dices[1], placeId);
             if(dices[2] > 0)colorIt(placeId+dices[3], placeId);
         }
@@ -66,20 +65,18 @@ const GameLogic = ({ currentUser, turn, color, dices, board, connection, chat })
             if(dices[0] > 0)colorIt(placeId-dices[1], placeId);
             if(dices[2] > 0)colorIt(placeId-dices[3], placeId);
         }
-    }, [activePiece])
+    }, [activePiece]);
 
 
     const colorIt = (num, placeId) => {
         if(color === 'black' && num > 24){
-            if(!checkValid(1, (25-placeId), placeId)) return;
-            if(!checkValid(3, (25-placeId), placeId)) return;
-            PieceOut('black', 1, 18);
+            if(checkValidToOut(1, (25-placeId), 19, placeId-1)) PieceOut(1, 18);
+            if(checkValidToOut(3, (25-placeId), 19, placeId-1)) PieceOut(1, 18);
             return;
         }
         if(color === 'white' && num < 1){
-            if(!checkValid(1, placeId, placeId)) return;
-            if(!checkValid(3, placeId, placeId)) return;
-            PieceOut('white', 7, 24 );
+            if(!checkValidToOut(1, placeId, placeId+1, 6)) PieceOut(7, 24);
+            if(!checkValidToOut(3, placeId, placeId+1, 6)) PieceOut(7, 24);
             return;
         }
 
@@ -108,30 +105,119 @@ const GameLogic = ({ currentUser, turn, color, dices, board, connection, chat })
         }
     }
 
-    const checkValid = (diceNum, placeNum, placeId ) => {
-        if(dices[diceNum] > placeNum && dices[diceNum-1]>0){
-            for (let i = 19; i < placeId; i++) {
-                for (let j = 0; j < document.getElementById('T'+i).children.length; j++) {
-                    if(document.getElementById('T'+i).children[j].classList.contains(color)) return false;
-                    if(j>2) break;
-                }
+    const checkValidToOut = (diceNum, placeNum, from, to) => {
+        if(dices[diceNum] === (placeNum) && dices[diceNum-1] > 0) return true;
+
+        if(dices[diceNum-1] > 0){
+            for (let i = from; i <= to; i++) {
+                let place = document.getElementById('T'+i);
+                if(place.children[2] && place.children[2].classList.contains(color)) return false;
             }
         }
         return true;
     }
 
-    const PieceOut = (colorToChek, from, to) => {
-        if(color === colorToChek){
-            for (let i = from; i <= to; i++) {
-                let place = document.getElementById('T'+i);
-                for (let j = 0; j < place.children.length; j++) {
-                    if(place.children[j].classList.contains(color)) return;
-                }
+    const PieceOut = (from, to) => {
+        for (let i = from; i <= to; i++) {
+            let place = document.getElementById('T'+i);
+            for (let j = 0; j < place.children.length; j++) {
+                if(place.children[j].classList.contains(color)) return;
             }
-            document.getElementById('pieceOut').className = 'pieceOut';
         }
+        document.getElementById('pieceOut').className = 'pieceOut';
     }
 
+    useEffect(() => {
+        if(move && dices) {
+          UpdateGame(color, turn,  move, dices, setDices, connection, chat);
+        }
+        checkCnatMoveBtn();
+    }, [move]);
+    
+    useEffect(() => {
+        if(!turn || !color) return;
+
+        let myTurn = document.getElementById('myTurn');
+        let otherTurn = document.getElementById('otherTurn');
+        if(!myTurn || !otherTurn) return;
+
+        if(turn === color){
+            myTurn.className = 'userInfo turn';
+            otherTurn.className = 'userInfo';
+        }
+        else{
+            myTurn.className = 'userInfo';
+            otherTurn.className = 'userInfo turn';
+        }
+
+        checkCnatMoveBtn();
+    }, [turn]);
+    
+    const checkCnatMoveBtn = () => {
+        let btn = document.getElementById('cantMoveBtn');
+        if(!btn) return;
+
+        if(!checkIfCanMove()){
+            btn.disabled = false;
+            btn.className = '';
+        }
+        else {
+            btn.disabled = true;
+            btn.className = 'cantMoveBtn';
+        }
+    };
+
+    const checkIfCanMove = () => {
+        if(!color || !turn || color !== turn) return true;
+
+        let mid = document.getElementById('MidPart');
+        if(mid && mid.children.length > 0){
+            for (let i = 0; i < mid.length; i++) {
+                if(mid[i].classList.contains(color)){
+                    debugger
+                    if(dices[0] > 0 && checkIfCanGoToPlaceByDice(1)) return true;
+                    if(dices[2] > 0 && checkIfCanGoToPlaceByDice(3)) return true;
+                    return false;
+                }
+            }
+        }
+
+        for (let i = 1; i <= 24; i++) {
+            let triangle = document.getElementById('T'+i);
+            if(!triangle) return true;
+
+            if(!triangle.children[1]) continue;
+            if(triangle.children[1].classList.contains(color)){
+                if(chackNextMoveValid(i,1)) return true;
+                if(chackNextMoveValid(i,3)) return true;
+            }
+        }
+        return false;
+    }
+
+    const checkIfCanGoToPlaceByDice = (diceNum) =>{
+        let tplace;
+        if(color === 'white') tplace = 25 - dices[diceNum];
+        if(color === 'black') tplace = dices[diceNum];
+
+        let place = document.getElementById('T'+tplace).children;
+        if(!place[2]) return true;
+        if(place[2].classList.contains(color)) return true;
+        return false;
+    }
+
+    const chackNextMoveValid = (placeNum, diceNum) => {
+        let num = 0;
+        if(color === 'white') num = placeNum - dices[diceNum];
+        if(color === 'black') num = placeNum + dices[diceNum];
+
+        let nextPlace = document.getElementById('T'+num);
+        if(nextPlace){
+            if(!nextPlace.children[2]) return true;
+            if(nextPlace.children[2].classList.contains(color)) return true;
+        }
+        return false;
+    }
     return <div>{
         !board
             ?null
@@ -141,8 +227,8 @@ const GameLogic = ({ currentUser, turn, color, dices, board, connection, chat })
                         <div className={'topPiece '+color}/>
                         <div id={'myTurn'} className='userInfo'>You</div>
                         <button id='cantMoveBtn' className='cantMoveBtn' onClick={() => RollDice()}>You Can't Move Roll Dice Now!</button>
-                        <div id={'otherTurn'} className='userInfo'>{(chat.users[0]==currentUser.username)?chat.users[1]:chat.users[0]}</div>
-                        <div className={'topPiece '+ (color == 'white'?'black':'white')}/>
+                        <div id={'otherTurn'} className='userInfo'>{(chat.users[0] === currentUser.username)?chat.users[1]:chat.users[0]}</div>
+                        <div className={'topPiece '+ (color === 'white'?'black':'white')}/>
                     </div>
                     {board}
                 </div>
