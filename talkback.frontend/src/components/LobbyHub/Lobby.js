@@ -16,7 +16,7 @@ const Lobby = ({ move, turn, color, setDices, dices, board, chat, connection, cu
 
 
     return <div>
-        <button onClick={() => setFlag(!flag)}>Help</button>
+        { !board && <button onClick={() => setFlag(!flag)}>Help</button>}
         {
             flag
             ?<div className='lobby'>

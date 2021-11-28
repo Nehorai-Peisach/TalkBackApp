@@ -80,8 +80,8 @@ const GameLogic = ({ move, currentUser, turn, color, setDices, dices, board, con
             return;
         }
         if(color === 'white' && num < 1){
-            if(!checkValidToOut(1, placeId, placeId+1, 6)) PieceOut(7, 24);
-            if(!checkValidToOut(3, placeId, placeId+1, 6)) PieceOut(7, 24);
+            if(checkValidToOut(1, placeId, placeId+1, 6)) PieceOut(7, 24);
+            if(checkValidToOut(3, placeId, placeId+1, 6)) PieceOut(7, 24);
             return;
         }
 
@@ -116,10 +116,11 @@ const GameLogic = ({ move, currentUser, turn, color, setDices, dices, board, con
         if(dices[diceNum-1] > 0){
             for (let i = from; i <= to; i++) {
                 let place = document.getElementById('T'+i);
-                if(place.children[2] && place.children[2].classList.contains(color)) return false;
+                if(place.children[1] && place.children[1].classList.contains(color)) return false;
             }
+            return true;
         }
-        return true;
+        return false;
     }
 
     const PieceOut = (from, to) => {
@@ -134,14 +135,18 @@ const GameLogic = ({ move, currentUser, turn, color, setDices, dices, board, con
 
     useEffect(() => {
         if(dices)
-        checkCnatMoveBtn();
         playDice();
+        checkCnatMoveBtn();
+        let colorWin = checkEnd();
+        if(colorWin){
+            connection.invoke("EndGame", chat, colorWin);
+        }
     }, [dices])
 
     useEffect(() => {
         if(move && dices) {
-            UpdateGame(color, turn,  move, dices, setDices, connection, chat);
             checkCnatMoveBtn();
+            UpdateGame(color, turn,  move, dices, setDices, connection, chat);
             playPiece();
             let colorWin = checkEnd();
             if(colorWin){
@@ -152,11 +157,10 @@ const GameLogic = ({ move, currentUser, turn, color, setDices, dices, board, con
     
     useEffect(() => {
         if(!turn || !color) return;
-
         let myTurn = document.getElementById('myTurn');
         let otherTurn = document.getElementById('otherTurn');
         if(!myTurn || !otherTurn) return;
-
+        
         if(turn === color){
             myTurn.className = 'userInfo turn';
             otherTurn.className = 'userInfo';
@@ -165,15 +169,16 @@ const GameLogic = ({ move, currentUser, turn, color, setDices, dices, board, con
             myTurn.className = 'userInfo';
             otherTurn.className = 'userInfo turn';
         }
-
+        
+        checkCnatMoveBtn();
     }, [turn]);
     
     const checkEnd = () => {
         var tmpColor;
-        for (let i = 1; i < 24; i++) {
+        for (let i = 1; i <= 24; i++) {
             let place = document.getElementById('T'+i);
             if(place && place.children[1]){
-                if(tmpColor && tmpColor !== place.children[1].className) return null;
+                if(tmpColor && (tmpColor+' piece') !== place.children[1].className) return null;
                 if(place.children[1].classList.contains('white')) tmpColor='white';
                 if(place.children[1].classList.contains('black')) tmpColor='black';
             }
@@ -184,8 +189,8 @@ const GameLogic = ({ move, currentUser, turn, color, setDices, dices, board, con
     const checkCnatMoveBtn = () => {
         let btn = document.getElementById('cantMoveBtn');
         if(!btn) return;
-
-        if(!checkIfCanMove()){
+        
+        if(color && turn && color === turn && !checkIfCanMove()){
             btn.disabled = false;
             btn.className = '';
         }
@@ -196,7 +201,7 @@ const GameLogic = ({ move, currentUser, turn, color, setDices, dices, board, con
     };
 
     const checkIfCanMove = () => {
-        if(!color || !turn || color !== turn) return true;
+
         let mid = document.getElementById('MidPart');
         if(mid && mid.children.length > 0){
             for (let i = 0; i < mid.children.length; i++) {
@@ -214,8 +219,8 @@ const GameLogic = ({ move, currentUser, turn, color, setDices, dices, board, con
 
             if(!triangle.children[1]) continue;
             if(triangle.children[1].classList.contains(color)){
-                if(chackNextMoveValid(i,1)) return true;
-                if(chackNextMoveValid(i,3)) return true;
+                if(dices[0] > 0 && chackNextMoveValid(i,1)) return true;
+                if(dices[2] > 0 && chackNextMoveValid(i,3)) return true;
             }
         }
         return false;

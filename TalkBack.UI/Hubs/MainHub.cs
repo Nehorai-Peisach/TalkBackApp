@@ -48,7 +48,7 @@ namespace TalkBack.UI.Hubs
             
             if(currentUser.PlayWith!= null && currentUser.PlayWith == otherUser.Username && otherUser.PlayWith == currentUser.Username)
             {
-                if(color != null) await SendMessage(currentUser.Username, chat, $"The color: {color} win the the game.", false);
+                if(color != null) await SendMessage(currentUser.Username, chat, $"The {color} win the the game.", false);
                 else await SendMessage(currentUser.Username, chat, $"{currentUser.Username} has left the game.", false);
                 
                 currentUser.PlayWith = null;

@@ -18,7 +18,7 @@ const MessagesContainer =({ board, currentUser, messages }) =>{
                 behavior: 'smooth'
             });
         }
-        if(messages[messages.length-1].sender !== currentUser.username) play();
+        if(messages && messages[messages.length] > 0 && messages[messages.length-1].sender !== currentUser.username) play();
     }, [messages])
 
     return <div ref={messageRef} className={'message-container '+classname}>

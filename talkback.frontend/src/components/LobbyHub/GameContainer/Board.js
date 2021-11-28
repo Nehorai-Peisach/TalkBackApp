@@ -15,7 +15,7 @@ export const MakeBoard = () =>{
     for (let index = 0; index <= 24; index++) {
         let input= []
         switch(index){
-            case 1:  input= [b[0], b[1]];break;
+            case 1:  input= [b[1], b[1]];break;
             case 6:  input= [w[10], w[11], w[12], w[13], w[14]];break;
             case 8:  input= [w[7], w[8], w[9]];break;
             case 12: input= [b[2], b[3], b[4], b[5], b[6]];break;
