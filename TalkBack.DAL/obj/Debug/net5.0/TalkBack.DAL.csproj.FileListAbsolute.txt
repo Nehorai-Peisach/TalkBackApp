@@ -85,7 +85,6 @@ D:\Users\Nehor\Documents\GitHub\TalkBackApp-main\TalkBack.DAL\obj\Debug\net5.0\T
 D:\Users\Nehor\Documents\GitHub\TalkBackApp-main\TalkBack.DAL\obj\Debug\net5.0\ref\TalkBack.DAL.dll
 D:\Users\Nehor\Documents\GitHub\TalkBackApp-main\TalkBack.DAL\obj\Debug\net5.0\TalkBack.DAL.pdb
 D:\Users\Nehor\Documents\GitHub\TalkBackApp-main\TalkBack.DAL\obj\Debug\net5.0\TalkBack.DAL.csproj.CopyComplete
-D:\Users\Nehor\Documents\GitHub\TalkBackApp\TalkBack.DAL\obj\Debug\net5.0\TalkBack.DAL.csproj.CopyComplete
 C:\Users\ofekm\OneDrive\מסמכים\GitHub\TalkBackApp\TalkBack.DAL\bin\Debug\net5.0\TalkBack.DAL.deps.json
 C:\Users\ofekm\OneDrive\מסמכים\GitHub\TalkBackApp\TalkBack.DAL\bin\Debug\net5.0\TalkBack.DAL.dll
 C:\Users\ofekm\OneDrive\מסמכים\GitHub\TalkBackApp\TalkBack.DAL\bin\Debug\net5.0\ref\TalkBack.DAL.dll

@@ -1,9 +1,16 @@
 .lobby{
-    display: flex;
+    width: 150vh;
+    height: 80vh;
     background-color: #F0F0F0;
     align-items: center;
-    text-align: center;
+    justify-content: center;
 }
 .game{
     display: flex;
+}
+.showUsers{
+    display: flex;
+}
+.space{
+    padding: 10vh;
 }

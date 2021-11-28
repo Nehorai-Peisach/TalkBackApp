@@ -21,11 +21,18 @@ namespace TalkBack.UI
             {
                 options.AddDefaultPolicy(builder =>
                 {
-                    builder.WithOrigins("http://localhost:3000")
+                    builder.WithOrigins("https://talkbackfrontend.azurewebsites.net")
                     .AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials();
                 });
+                //options.AddDefaultPolicy(builder =>
+                //{
+                //    builder.WithOrigins("http://localhost:3000")
+                //    .AllowAnyHeader()
+                //    .AllowAnyMethod()
+                //    .AllowCredentials();
+                //});
             });
 
             services.AddSingleton<IDictionary<string, User>>(options => new Dictionary<string, User>());

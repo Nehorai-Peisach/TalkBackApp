@@ -1,14 +1,14 @@
 .bar{
-    height: auto;
-    width: 40vh;
     background-color: #F0F0F0;
-    display: box;
+    display: inline;
+    height: 5vh;
+    width: auto;
 }
 .btn {
     background: #51585C;
     color: white;
-    height: 4vh;
-    width: 4vh;
+    height: 3.8vh;
+    width: 3.8vh;
     margin: 5px 1px;
     padding: 0px;
     vertical-align:0px;
@@ -19,11 +19,15 @@
 }
 .message-input{
     background-color: white;
-    height: 4vh;
-    width: 25vh;
-    margin: 0px;
-    padding: 15px;
     border-radius: 50px;
+    height: 4vh;
+    margin: 0vh 0vh 0vh -5vh;
+}
+.bigBar{
+    width: 100vh;
+}
+.smallBar{
+    width: 28vh;
 }
 .message-input:focus{
     outline: none;

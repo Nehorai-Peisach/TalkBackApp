@@ -16,7 +16,7 @@ const GameLogic = ({ move, currentUser, turn, color, setDices, dices, board, con
     }
     const onClick = (e) => {
         if(turn !== color) return;
-        
+
         const element = e.target;
         if(activePiece && (element.classList.contains('none-selected') || element.id === 'pieceOut')){
             Update(activePiece.parentElement, element);
@@ -128,15 +128,20 @@ const GameLogic = ({ move, currentUser, turn, color, setDices, dices, board, con
     }
 
     useEffect(() => {
-        if(move && dices) {
-          UpdateGame(color, turn,  move, dices, setDices, connection, chat);
-        }
+        if(dices)
         checkCnatMoveBtn();
+    }, [dices])
+    useEffect(() => {
+        if(move && dices) {
+            checkCnatMoveBtn();
+            UpdateGame(color, turn,  move, dices, setDices, connection, chat);
+        }
     }, [move]);
     
     useEffect(() => {
         if(!turn || !color) return;
 
+        checkCnatMoveBtn();
         let myTurn = document.getElementById('myTurn');
         let otherTurn = document.getElementById('otherTurn');
         if(!myTurn || !otherTurn) return;
@@ -150,7 +155,6 @@ const GameLogic = ({ move, currentUser, turn, color, setDices, dices, board, con
             otherTurn.className = 'userInfo turn';
         }
 
-        checkCnatMoveBtn();
     }, [turn]);
     
     const checkCnatMoveBtn = () => {
@@ -169,12 +173,10 @@ const GameLogic = ({ move, currentUser, turn, color, setDices, dices, board, con
 
     const checkIfCanMove = () => {
         if(!color || !turn || color !== turn) return true;
-
         let mid = document.getElementById('MidPart');
         if(mid && mid.children.length > 0){
-            for (let i = 0; i < mid.length; i++) {
-                if(mid[i].classList.contains(color)){
-                    debugger
+            for (let i = 0; i < mid.children.length; i++) {
+                if(mid.children[i] && mid.children[i].classList.contains(color)){
                     if(dices[0] > 0 && checkIfCanGoToPlaceByDice(1)) return true;
                     if(dices[2] > 0 && checkIfCanGoToPlaceByDice(3)) return true;
                     return false;

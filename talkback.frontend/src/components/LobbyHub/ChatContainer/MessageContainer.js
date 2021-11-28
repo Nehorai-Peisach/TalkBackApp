@@ -1,9 +1,13 @@
 import './messageContainer.css';
-import { useEffect,useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const MessagesContainer =({ currentUser, messages }) =>{
+const MessagesContainer =({ board, currentUser, messages }) =>{
     const messageRef = useRef();
-
+    const [classname, setClassname] = useState('big');
+    useEffect(() => {
+        if(board) setClassname('small');
+        else setClassname('big');
+    }, [board])
     useEffect(() => {
         if(messageRef && messageRef.current){
             const { scrollHeight,clientHeight } = messageRef.current;
@@ -14,7 +18,7 @@ const MessagesContainer =({ currentUser, messages }) =>{
         }
     }, [messages])
 
-    return <div ref={messageRef} className='message-container'>
+    return <div ref={messageRef} className={'message-container '+classname}>
         {messages.map((m, index) =>
             m.sender === currentUser.username
             ?   <div className='sender'>
