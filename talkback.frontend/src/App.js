@@ -18,10 +18,6 @@ const App = () =>{
   const [color, setColor] = useState();
   const [turn, setTurn] = useState();
 
-  const linkClick = (link) => {
-
-  }
-
   useEffect(() => {
     Connect(setTurn, setBoard, setColor, setMove, setDices, setConnection, setCurrentUser, setUsers, setChat);
     MakeBoard();

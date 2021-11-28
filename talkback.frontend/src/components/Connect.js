@@ -1,15 +1,16 @@
 import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 import CreatBoard from "./LobbyHub/GameContainer/Board";
 
+
 const Connect = (setTurn, setBoard, setColor, setMove, setDices, setConnection, setCurrentUser, setUsers, setChat) => {
+
     let connection = new HubConnectionBuilder()
-    // .withUrl('https://localhost:44322/main')
-    .withUrl('https://talkbackonline.azurewebsites.net/main')
+    .withUrl('https://localhost:44322/main')
+    // .withUrl('https://talkbackonline.azurewebsites.net/main')
     .configureLogging(LogLevel.Information)
     .build();
     
     connection.on("EndGame", () =>{
-        debugger
         setBoard(null);
     });
     connection.on("WantToPlayWithYou", (otherUser, flag) =>{

@@ -23,11 +23,12 @@
 
 .sender {
     text-align: right;
-    padding-right: 5px;
 }
 .reciver{
     text-align: left;
-    padding-right: 5px;
+}
+.server{
+    text-align: center;
 }
 
 .color-sender{
@@ -39,19 +40,24 @@
     color: black;
     background-color:white;
 }
+.color-server{
+    color: grey;
+    background-color:gainsboro;
+}
 
 .message-text{
     display: block;
     font-size: 14px;
     user-select:text;
 }
-.message:hover > .message-name{
+/* .message:hover > .message-name{
     visibility: visible;
     font-size: 8px;
-}
+} */
 .message-name{
-    visibility: hidden;
-    font-size: 0px;
+    /* visibility: hidden;
+    font-size: 0px; */
+    font-size: 8px;
 }
 .message-date{
     font-size: 8px;

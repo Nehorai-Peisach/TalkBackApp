@@ -6,6 +6,10 @@ const UsersContainer = ({ userClicked, users ,currentUser }) => {
         <h4>Welcome {currentUser.username}!</h4>
         <hr className='line'/>
         <h5>Online</h5>
+        <div className='user'>
+            <div id={'CallChat'} className='circle on'/>
+            <div className='online-user' id='allChat' onClick={()=> userClicked('allChat')}>All</div>
+        </div>
         { users.map((u,index) =><div>
             {u.username!==currentUser.username
                 && u.connectionId

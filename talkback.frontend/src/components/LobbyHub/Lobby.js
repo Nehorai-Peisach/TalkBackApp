@@ -8,8 +8,10 @@ const Lobby = ({ move, turn, color, setDices, dices, board, chat, connection, cu
 
     const [flag, setFlag] = useState(true);
     async function userClicked (otherUser){
-        await connection.invoke("EndGame", chat);
-        await connection.invoke("GetChat", currentUser.username, otherUser.username);
+        await connection.invoke("EndGame", chat, null);
+
+        if(otherUser === 'allChat') await connection.invoke("GetChat", '', otherUser);
+        else await connection.invoke("GetChat", currentUser.username, otherUser.username);
     };
 
 

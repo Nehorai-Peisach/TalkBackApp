@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TalkBack.BLL.Interfaces;
@@ -38,7 +37,7 @@ namespace TalkBack.UI.Hubs
                 await Clients.Group(chat.ChatId.ToString()).SendAsync("Turn", "white");
         }
 
-        public async Task EndGame(Chat chat)
+        public async Task EndGame(Chat chat, string color)
         {
             if (chat == null) return;
 
@@ -49,7 +48,9 @@ namespace TalkBack.UI.Hubs
             
             if(currentUser.PlayWith!= null && currentUser.PlayWith == otherUser.Username && otherUser.PlayWith == currentUser.Username)
             {
-                await SendMessage(chat, $"{currentUser.Username} was left the game.");
+                if(color != null) await SendMessage(currentUser.Username, chat, $"The color: {color} win the the game.", false);
+                else await SendMessage(currentUser.Username, chat, $"{currentUser.Username} has left the game.", false);
+                
                 currentUser.PlayWith = null;
                 otherUser.PlayWith = null;
                 userService.UpdateUser(currentUser);
@@ -79,8 +80,8 @@ namespace TalkBack.UI.Hubs
         {
             if (!(currentUser.PlayWith == otherUser.Username && otherUser.PlayWith == currentUser.Username)) return;
 
-            await Groups.AddToGroupAsync(currentUser.ConnectionId, chat.ChatId.ToString());
-            await Groups.AddToGroupAsync(otherUser.ConnectionId, chat.ChatId.ToString());
+            await Groups.AddToGroupAsync(currentUser.Username, chat.ChatId.ToString());
+            await Groups.AddToGroupAsync(otherUser.Username, chat.ChatId.ToString());
 
             await Clients.Group(chat.ChatId.ToString()).SendAsync("CanPlay");
             await StartGame(currentUser, otherUser, chat);
@@ -96,7 +97,13 @@ namespace TalkBack.UI.Hubs
 
         public async Task GetChat(string currentUser, string otherUser)
         {
-            if (currentUser != null && otherUser != null)
+            if(otherUser == "allChat")
+            {
+                var chat = chatService.GetChat("", otherUser);
+                await Groups.AddToGroupAsync(Context.ConnectionId, chat.ChatId.ToString());
+                await Clients.Group(chat.ChatId.ToString()).SendAsync("GetChat", chat);
+            }
+            else if (currentUser != null && otherUser != null)
             {
                 var other = userService.GetUsers().FirstOrDefault(x => x.Username == otherUser);
                 var current = userService.GetUsers().FirstOrDefault(x => x.Username == currentUser);
@@ -112,21 +119,38 @@ namespace TalkBack.UI.Hubs
             }
         }
 
-        public async Task SendMessage(Chat chat, string text)
+        public async Task SendMessage(string currentUsername, Chat chat, string text, bool isFromUser)
         {
-            var sender = userService.GetUsers().Find(x => x.ConnectionId == Context.ConnectionId);
-            var reciver = chat.Users.First(x => x != sender.Username);
+            var reciverUsername = chat.Users.First(x => x != currentUsername);
+            var sender = "";
+            var reciver = "";
+
+            if(chat.Users.FirstOrDefault(x => x == "allChat") != default)
+            {
+                sender = currentUsername;
+                reciver = "All";
+                reciverUsername = "allChat";
+            }
+            else if (isFromUser) {
+                sender = currentUsername;
+                reciver = reciverUsername;
+            }
+            else
+            {
+                sender = "Server";
+                reciver = "All";
+            }
 
             chat.Messages.Add(new Message()
             {
-                Sender = sender.Username,
+                Sender = sender,
                 Reciver = reciver,
                 Date = DateTime.Now.ToString("HH:mm"),
                 Text = text
             });
             chatService.Update(chat);
 
-            await GetChat(sender.Username, reciver);
+            await GetChat(currentUsername, reciverUsername);
             await Clients.Group(chat.ChatId.ToString()).SendAsync("SendMessage", true);
         }
 
@@ -170,7 +194,7 @@ namespace TalkBack.UI.Hubs
                 .Find(x => x.ConnectionId == Context.ConnectionId);
             if (user != null)
             {
-                EndGame(user.CurrentChat);
+                EndGame(user.CurrentChat, null);
                 Disconnect(user.ConnectionId, user.Username);
                 user.ConnectionId = default;
                 user.PlayWith = default;

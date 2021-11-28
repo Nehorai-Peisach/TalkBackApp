@@ -1,16 +1,21 @@
 import './GameLogic.css';
 import { useState, useEffect } from 'react'
 import UpdateGame from './UpdateGame'
+import useSound from 'use-sound';
+import pieceSound from '../../../assets/sounds/piece.mp3';
+import diceSound from '../../../assets/sounds/dice.mp3';
 
 const GameLogic = ({ move, currentUser, turn, color, setDices, dices, board, connection, chat }) => {
     const [activePiece, setActivePiece] = useState();
 
+    let [playPiece] =useSound(pieceSound);
+    let [playDice] =useSound(diceSound);
+    
     const Update = (currentPlace, nextPlace) => {
         connection.invoke('UpdateBoard', chat, activePiece.id, currentPlace.id, nextPlace.id);
     }
 
     const RollDice = () => {
-        debugger
         connection.invoke('RollDice', chat);
         connection.invoke('NextTurn', chat ,color);
     }
@@ -130,18 +135,24 @@ const GameLogic = ({ move, currentUser, turn, color, setDices, dices, board, con
     useEffect(() => {
         if(dices)
         checkCnatMoveBtn();
+        playDice();
     }, [dices])
+
     useEffect(() => {
         if(move && dices) {
-            checkCnatMoveBtn();
             UpdateGame(color, turn,  move, dices, setDices, connection, chat);
+            checkCnatMoveBtn();
+            playPiece();
+            let colorWin = checkEnd();
+            if(colorWin){
+                connection.invoke("EndGame", chat, colorWin);
+            }
         }
     }, [move]);
     
     useEffect(() => {
         if(!turn || !color) return;
 
-        checkCnatMoveBtn();
         let myTurn = document.getElementById('myTurn');
         let otherTurn = document.getElementById('otherTurn');
         if(!myTurn || !otherTurn) return;
@@ -157,6 +168,19 @@ const GameLogic = ({ move, currentUser, turn, color, setDices, dices, board, con
 
     }, [turn]);
     
+    const checkEnd = () => {
+        var tmpColor;
+        for (let i = 1; i < 24; i++) {
+            let place = document.getElementById('T'+i);
+            if(place && place.children[1]){
+                if(tmpColor && tmpColor !== place.children[1].className) return null;
+                if(place.children[1].classList.contains('white')) tmpColor='white';
+                if(place.children[1].classList.contains('black')) tmpColor='black';
+            }
+        }
+        return tmpColor;
+    }
+
     const checkCnatMoveBtn = () => {
         let btn = document.getElementById('cantMoveBtn');
         if(!btn) return;

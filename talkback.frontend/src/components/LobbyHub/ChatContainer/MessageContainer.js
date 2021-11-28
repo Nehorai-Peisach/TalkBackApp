@@ -1,9 +1,11 @@
 import './messageContainer.css';
 import { useEffect, useRef, useState } from "react";
-
+import useSound from 'use-sound';
+import recive from '../../../assets/sounds/recive.mp3';
 const MessagesContainer =({ board, currentUser, messages }) =>{
     const messageRef = useRef();
     const [classname, setClassname] = useState('big');
+    let [play] = useSound(recive);
     useEffect(() => {
         if(board) setClassname('small');
         else setClassname('big');
@@ -16,6 +18,7 @@ const MessagesContainer =({ board, currentUser, messages }) =>{
                 behavior: 'smooth'
             });
         }
+        if(messages[messages.length-1].sender !== currentUser.username) play();
     }, [messages])
 
     return <div ref={messageRef} className={'message-container '+classname}>
@@ -25,14 +28,19 @@ const MessagesContainer =({ board, currentUser, messages }) =>{
                     <div className='message color-sender' key={index}>
                         <div className='message-text'>{m.text}</div>
                         <div className='message-date'>{m.date}</div>
-                        <div className='message-name'>From: {m.sender}</div>
                     </div>
                 </div>
-            :   <div className='reciver'>
+            : m.sender === 'Server'
+            ? <div className='server'>
+            <div className='message color-server' key={index}>
+                <div className='message-text'>{m.text}</div>
+            </div>
+        </div>
+            :<div className='reciver'>
                     <div className='message color-reciver' key={index}>
+                        <div className='message-name'>{m.sender}</div>
                         <div className='message-text'>{m.text}</div>
                         <div className='message-date'>{m.date}</div>
-                        <div className='message-name'>From: {m.sender}</div>
                     </div>
                 </div>
         )}
